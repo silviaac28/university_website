@@ -11,4 +11,47 @@
     height: 10vh;
   }
 
-  
+table{
+    margin-top: 10vh;
+    margin-left: 5vw;
+  }
+
+.navbar-inverse {
+    background-color: violet;
+    border-color: rgb(0, 247, 255);
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: violet;
+}
+
+
+ #imagen-portada img{
+  height: 80vh;
+ }
+
+
+ /*DISENO FORMULARIO ALUMNOS */
+
+ #formAlumnos{
+    display: flex;
+    margin-left: 30vw;
+    flex-direction: column;
+    margin-top: 5vh;
+ }
+
+ .pf{
+  font-size: 3vh;
+ }
+
+ /*DISENO FORMULARIO ALUMNOS */
+
+ #formDocentes{
+  display: flex;
+  margin-left: 30vw;
+  flex-direction: column;
+  margin-top: 5vh;
+}
