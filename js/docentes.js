@@ -5,10 +5,10 @@ const loadDocentes= async()=>{
    
     try{
         listaDocentes.length=0;
-        const respuesta=await fetch('http://localhost:3000/Docentes');
+        const respuesta=await fetch('http://localhost:3000/profesores');
 
         if(!respuesta.ok){
-           throw new Error('Error al cargar alumno. Estado: ',respuesta.status);
+           throw new Error('Error al cargar docente. Estado: ',respuesta.status);
         }
         const Docentes=await respuesta.json();
         listaDocentes.push(...Docentes);
@@ -16,69 +16,49 @@ const loadDocentes= async()=>{
     }catch(error){
         console.error("Error al cargar Docentes",error.message);
     }
+    console.log(listaDocentes)
 }
 
 
 
-const submitAlumno=()=>{
-    const nombreAlumInput=document.getElementById("nombreAlum")
-    const apellidoAlumInput=document.getElementById("apellidoAlum")
-    const tipoIDInput=document.getElementById("tipoid")
-    const docAlumInput=document.getElementById("numdocumento")
-    const ciudadInput=document.getElementById("ciudad")
-    const direccionInput=document.getElementById("direccion")
-    const telefonoInput=document.getElementById("telefono")
-    const fechaInput=document.getElementById("fechaNacim")
-    const generoInput=document.getElementById("genero")
-    const programAlumInput=document.getElementById("idprogram")
+const submitDocente=()=>{
+    const nombreDocenteInput=document.getElementById("nombreDocente")
+    const apellidoDocenteInput=document.getElementById("apellidoDocente")
+    const tipoid_docInput=document.getElementById("tipoid_doc")
+    const doc_docenteInput=document.getElementById("doc_docente")
+    const dep_idInput=document.getElementById("dep_id")
 
-    const nombreAlum=nombreAlumInput.value;
-    const apellidoAlum=apellidoAlumInput.value;
-    const tipoID=tipoIDInput.value;
-    const docAlum=docAlumInput.value;
-    const ciudad=ciudadInput.value;
-    const direccion=direccionInput.value;
-    const telefono=telefonoInput.value;
-    const fecha=fechaInput.value;
-    const genero=generoInput.value;
-    const programAlum=programAlumInput.value;
+    const nombreDocente=nombreDocenteInput.value;
+    const apellidoDocente=apellidoDocenteInput.value;
+    const tipoid_doc=tipoid_docInput.value;
+    const doc_docente=doc_docenteInput.value;
+    const dep_id=dep_idInput.value;
 
-    const nuevoAlumno={
+    const nuevodocente={
         id:listaDocentes.length+1,
-        nombre: nombreAlum,
-        apellido: apellidoAlum,
-        tipo_documento: tipoID,
-        numero_documento: docAlum,
-        ciudad_residencia: ciudad,
-        direccion: direccion,
-        telefono: telefono,
-        fecha_nacimiento: fecha,
-        sexo: genero,
-        programa_id: programAlum
+        nombre: nombreDocente,
+        apellido: apellidoDocente,
+        tipo_documento: tipoid_doc,
+        numero_documento: doc_docente,
+        departamento_id: dep_id
     }
 
-  
-    guardarAlumno(nuevoAlumno);
+    guardarDocente(nuevoDocente);
 
-    nombreAlumInput=value='';
-    apellidoAlumInput=value='';
-    tipoIDInput=value='';
-    docAlumInput=value='';
-    ciudadInput=value='';
-    direccionInput=value='';
-    telefonoInput=value='';
-    fechaInput=value='';
-    generoInput=value='';
-    programAlumInput=value='';
+    nombreDocenteInput=value='';
+    apellidoDocenteInput=value='';
+    tipoid_docInput=value='';
+    doc_docenteInput=value='';
+    dep_idInput=value='';
 
 
-    alert('Alumno creado con éxito!');
+    alert('Docente creado con éxito!');
 
 
 }
 
 
-const guardarAlumno= async(nuevoAlumno)=>{
+const guardarDocente= async(nuevodocente)=>{
     try{
 
         const respuesta=await fetch('http://localhost:3000/Docentes',{
@@ -86,16 +66,16 @@ const guardarAlumno= async(nuevoAlumno)=>{
             headers:{
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(nuevoAlumno),
+            body: JSON.stringify(nuevodocente),
         });
 
         if(!respuesta.ok){
-           throw new Error('Error al crear el Alumno. Estado: ',respuesta.status);
+           throw new Error('Error al crear el docente. Estado: ',respuesta.status);
         }
-        const AlumnoCreado=await respuesta.json();
+        const docenteCreado=await respuesta.json();
        
         
-        console.log('Alumno creado:', AlumnoCreado);
+        console.log('docente creado:', docenteCreado);
 
     }catch(error){
         console.error("Error al cargar Docentes",error.message);
@@ -103,3 +83,19 @@ const guardarAlumno= async(nuevoAlumno)=>{
 }
 
 console.log(listaDocentes);
+
+const cargarDepartamentos=()=>{
+    const dep_idInput=document.getElementById("dep_id");
+    let datos = '';
+    for ( const depto of listaDepartamentos){
+        datos+=`<option value="${depto.id}">${depto.nombre}</option>`
+
+
+    
+    }
+    console.log(datos)
+
+    dep_idInput.innerHTML=datos;
+
+
+}

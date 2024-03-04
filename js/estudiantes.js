@@ -103,3 +103,16 @@ const guardarAlumno= async(nuevoAlumno)=>{
 }
 
 console.log(listaAlumnos);
+
+const cargarProgramasAlum=()=>{
+    const dep_idInput=document.getElementById("idprogram");
+    let datos = '';
+    for ( const prog of listaProgramas){
+        datos+=`<option value="${prog.id}">${prog.nombre}</option>`
+    }
+    console.log(datos)
+
+    dep_idInput.innerHTML=datos;
+
+
+}

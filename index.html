@@ -28,8 +28,8 @@
             <li><a href="#">Programas</a></li>
             <li><a href="#">Tarifas</a></li>
             <li><a href="#">Asignaturas</a></li>
-            <li><a href="#">Alumnos</a></li>
-            <li><a href="#">Docentes</a></li>
+            <li><a onclick="cargarProgramasAlum()">Alumnos</a></li>
+            <li><a onclick="cargarDepartamentos()">Docentes</a></li>
             <li><a href="#">Matriculas</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -213,15 +213,15 @@
       <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
         <div class="card px-5 pt-4 d-flex justify-content-center">
         <form class="mydetails">
-          <div class="form-group"><input type="text" class="form-control" id="nombreAlum" required><label class="form-control-placeholder" for="nombreAlum">Nombre</label></div>
+          <div class="form-group"><input type="text" class="form-control" id="nombreDocente" required><label class="form-control-placeholder" for="nombreDocente">Nombre</label></div>
 
-          <div class="form-group"><input type="text" class="form-control" id="apellidoAlum" required><label class="form-control-placeholder" for="apellidoAlum">Apellido</label></div>
+          <div class="form-group"><input type="text" class="form-control" id="apellidoDocente" required><label class="form-control-placeholder" for="apellidoDocente">Apellido</label></div>
 
           <div class="mb-3">
 
-            <label for="tipoid" class="form-label">Tipo de Identificación</label>
+            <label for="tipoid_doc" class="form-label">Tipo de Identificación</label>
 
-            <select id="tipoid" class="form-select">
+            <select id="tipoid_doc" class="form-select">
 
               <option>Cédula de Ciudadania</option>
               <option>Cédula de Extranjeria</option>
@@ -230,18 +230,93 @@
             </select>
           </div>
             
-          <div class="form-group"><input type="text" class="form-control" id="numdocumento" required><label class="form-control-placeholder" for="numdocumento">Número de Documento</label></div>
+          <div class="form-group"><input type="text" class="form-control" id="doc_docente" required><label class="form-control-placeholder" for="doc_docente">Número de Documento</label></div>
 
           <div class="mb-3">
 
-            <label for="idprogram" class="form-label">ID del programa</label>
+            <label for="dep_id" class="form-label">ID del programa</label>
 
-            <select id="idprogram" class="form-select">
+            <select id="dep_id" class="form-select">
 
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
+            </select>
+          </div>
+
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" ><span>Submit</span></button></div>
+          </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!----------- FORMULARIO ASIGNATURAS  ------------>
+
+<div id="formDocentes">
+  <div class="container4">
+    <p class="pf">INSCRIPCIÓN ASIGNATURAS</p>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+        <div class="card px-5 pt-4 d-flex justify-content-center">
+        <form class="mydetails">
+
+          <div class="mb-3">
+
+            <label for="programa" class="form-label">Programa</label>
+
+            <select id="programa" class="form-select">
+
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+
+            <label for="curso" class="form-label">Curso</label>
+
+            <select id="curso" class="form-select">
+
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+
+          <div class="form-group"><input type="text" class="form-control" id="codigo" required><label class="form-control-placeholder" for="nombreDocente">Código</label></div>
+
+          <div class="form-group"><input type="number" class="form-control" id="creditos" required><label class="form-control-placeholder" for="apellidoDocente">Créditos</label></div>
+
+          <div class="mb-3">
+
+            <label for="profesor" class="form-label">Profesor</label>
+
+            <select id="profesor" class="form-select">
+
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+            
+          <div class="form-group"><input type="number" class="form-control" id="cupos" required><label class="form-control-placeholder" for="cupos">Cupos Disponibles</label></div>
+
+          <div class="mb-3">
+
+            <label for="dep_id" class="form-label">Profesor</label>
+
+            <select id="dep_id" class="form-select">
+
+              <option>1</option>
+              <option>2</option>
             </select>
           </div>
 
@@ -258,9 +333,16 @@
 </div>
 
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>    
   <script src="js/estudiantes.js"></script>
+  <script src="js/docentes.js"></script>
+  <script src="js/departamentos.js"></script>
+  <script src="js/asignaturas.js"></script>
+  <script src="js/cursos.js"></script>
+  <script src="js/matriculas.js"></script>
+  <script src="js/periodos.js"></script>
+  <script src="js/salones.js"></script>
+  <script src="js/tarifas.js"></script>
+  <script src="js/programas.js"></script>
   <script src="js/app.js"></script>
 </body>
   
