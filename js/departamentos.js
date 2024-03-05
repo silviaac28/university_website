@@ -19,3 +19,21 @@ const loadDepartamentos= async()=>{
     console.log(listaDepartamentos)
 }
 
+
+const cargarDepartamentosTabla=()=>{
+    const dep_idInput=document.getElementById("tablaDeptos");
+    let datos = '';
+    for ( const depto of listaDepartamentos){
+        datos+=`<tr>
+
+        <td>${depto.id}</td>
+        <td>${depto.nombre}</td>
+
+        </tr>`
+    }
+    console.log(datos)
+
+    dep_idInput.innerHTML=datos;
+
+
+}

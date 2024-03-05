@@ -17,3 +17,24 @@ const loadProgramas= async()=>{
         console.error("Error al cargar Programas",error.message);
     }
 }
+
+
+const cargarProgramasTabla=()=>{
+    const programaInput=document.getElementById("tablaProgramas");
+    let datos = '';
+    for ( const program of listaProgramas){
+        datos+=`<tr>
+
+        <td>${program.id}</td>
+        <td>${program.nombre}</td>
+        <td>${program.nivel}</td>
+
+
+        </tr>`
+    }
+    console.log(datos)
+
+    programaInput.innerHTML=datos;
+
+
+}

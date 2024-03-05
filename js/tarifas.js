@@ -17,3 +17,24 @@ const loadTarifas= async()=>{
         console.error("Error al cargar Tarifas",error.message);
     }
 }
+
+const cargarTarifasTabla=()=>{
+    const tarifaInput=document.getElementById("tablaTarifas");
+    let datos = '';
+    for ( const tarifa of listaTarifas){
+        datos+=`<tr>
+
+        <td>${tarifa.id}</td>
+        <td>${tarifa.costo_credito}</td>
+        <td>${tarifa.periodo_id}</td>
+        <td>${tarifa.programa_id}</td>
+
+
+        </tr>`
+    }
+    console.log(datos)
+
+    tarifaInput.innerHTML=datos;
+
+
+}

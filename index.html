@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UNIVERSITY</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -18,18 +18,23 @@
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a onclick="cargarPeriodosTabla()">Periodos</a></li>
+            
+            <!-- LISTA DESPLEGABLE EN NAV
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Periodos<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Periodo 1</a></li>
                 <li><a href="#">Periodo 2</a></li>
               </ul>
-            </li>
-            <li><a href="#">Departamentos</a></li>
-            <li><a href="#">Programas</a></li>
-            <li><a href="#">Tarifas</a></li>
-            <li><a href="#">Asignaturas</a></li>
+            </li> --------->
+            <li><a onclick="cargarDepartamentosTabla()">Departamentos</a></li>
+            <li><a onclick="cargarProgramasTabla()">Programas</a></li>
+            <li><a onclick="cargarTarifasTabla()">Tarifas</a></li>
+            <li><a onclick="cargarCursosTabla()">Cursos</a></li>
+            
             <li><a onclick="cargarProgramasAlum()">Alumnos</a></li>
             <li><a onclick="cargarDepartamentos()">Docentes</a></li>
+            <li><a href="#">Asignaturas</a></li>
             <li><a href="#">Matriculas</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -46,28 +51,35 @@
         </div>
       </div>
 
+
+    <!-- TABLA PERIODOS -->
+
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Código del periodo</th>
+          <th scope="col">Año</th>
+          <th scope="col">Semestre</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPeriodos">
+       
+      </tbody>
+  </table>
+
+
     <!-- TABLA DEPARTAMENTOS  -->
 
   <table class="table table-striped">
     <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Id</th>
           <th scope="col">Nombre del Departamento</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>1</td>
-          <td>Departamento de informática</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>2</td>
-          <td>Departamento de matemáticas</td>
-        </tr>
-        <tr>
+      <tbody id="tablaDeptos">
+       
       </tbody>
   </table>
 
@@ -76,23 +88,13 @@
   <table class="table table-striped">
     <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Id</th>
-          <th scope="col">Nombre del programa</th>
+          <th scope="col">Nombre del Programa</th>
+          <th scope="col">Nombre del Nivel</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>1</td>
-          <td>Departamento de informática</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>2</td>
-          <td>Departamento de matemáticas</td>
-        </tr>
-        <tr>
+      <tbody id="tablaProgramas">
+       
       </tbody>
   </table>
 
@@ -107,22 +109,28 @@
             <th scope="col">ID del programa</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>1</td>
-            <td>1</td>
-            <td>nombre</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>1</td>
-            <td>1</td>
-            <td>nombre</td>
-          </tr>
-          <tr>
+        <tbody id="tablaTarifas">
+  
         </tbody>
     </table>
+
+    <!-- TABLA CURSOS  -->
+
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre del curso</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Guia cátedra</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCursos">
+  
+        </tbody>
+    </table>
+
+
 
       
 <!----------- FORMULARIO ALUMNOS  ------------>
@@ -292,9 +300,9 @@
             </select>
           </div>
 
-          <div class="form-group"><input type="text" class="form-control" id="codigo" required><label class="form-control-placeholder" for="nombreDocente">Código</label></div>
+          <div class="form-group"><input type="text" class="form-control" id="codigo" required><label class="form-control-placeholder" for="codigo">Código</label></div>
 
-          <div class="form-group"><input type="number" class="form-control" id="creditos" required><label class="form-control-placeholder" for="apellidoDocente">Créditos</label></div>
+          <div class="form-group"><input type="number" class="form-control" id="creditos" required><label class="form-control-placeholder" for="creditos">Créditos</label></div>
 
           <div class="mb-3">
 
@@ -311,14 +319,25 @@
 
           <div class="mb-3">
 
-            <label for="dep_id" class="form-label">Profesor</label>
+            <label for="dia1" class="form-label">Dia</label>
 
-            <select id="dep_id" class="form-select">
+            <select id="dia1" class="form-select">
 
-              <option>1</option>
-              <option>2</option>
+              <option>Lunes</option>
+              <option>Martes</option>
+              <option>Miercoles</option>
+              <option>Jueves</option>
+              <option>Viernes</option>
             </select>
           </div>
+
+          <div class="form-group"><input type="time" class="form-control" id="inicioDia1" required><label class="form-control-placeholder" for="inicioDia1">Hora de inicio de clase</label></div>
+
+          <div class="form-group"><input type="time" class="form-control" id="finDia1" required><label class="form-control-placeholder" for="finDia1">Hora fin de clase</label></div>
+
+          <div class="form-group"><input type="time" class="form-control" id="inicioDia2" required><label class="form-control-placeholder" for="inicioDia2">Hora de inicio de clase</label></div>
+
+          <div class="form-group"><input type="time" class="form-control" id="finDia2" required><label class="form-control-placeholder" for="finDia2">Hora fin de clase</label></div>
 
           <div class="col-md-6"><button type="button" class="btn btn-primary btn-block"><span>Submit</span></button></div>
           </div>

@@ -17,3 +17,25 @@ const loadPeriodos= async()=>{
         console.error("Error al cargar periodos",error.message);
     }
 }
+
+
+const cargarPeriodosTabla=()=>{
+    const periodoInput=document.getElementById("tablaPeriodos");
+    let datos = '';
+    for ( const periodo of listaPeriodos){
+        datos+=`<tr>
+
+        <td>${periodo.id}</td>
+        <td>${periodo.codigo}</td>
+        <td>${periodo.ano}</td>
+        <td>${periodo.semestre}</td>
+
+
+        </tr>`
+    }
+    console.log(datos)
+
+    periodoInput.innerHTML=datos;
+
+
+}

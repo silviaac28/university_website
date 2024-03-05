@@ -23,25 +23,49 @@ const loadAsignaturas= async()=>{
 
 
 const submitAsignaturas=()=>{
-    const nombreasignaturaInput=document.getElementById("nombreasignatura")
-    const apellidoasignaturaInput=document.getElementById("apellidoasignatura")
-    const tipoid_docInput=document.getElementById("tipoid_doc")
-    const doc_asignaturaInput=document.getElementById("doc_asignatura")
-    const dep_idInput=document.getElementById("dep_id")
+    const programaInput=document.getElementById("programa")
+    const cursoInput=document.getElementById("curso")
+    const codigoInput=document.getElementById("codigo")
+    const creditosInput=document.getElementById("creditos")
+    const profesorInput=document.getElementById("profesor")
+    const cuposInput=document.getElementById("cupos")
+    const dia1Input=document.getElementById("dia1")
+    const inicioDia1Input=document.getElementById("inicioDia1")
+    const finDia1Input=document.getElementById("finDia1")
+    const salon1Input=document.getElementById("salon1")
 
-    const nombreasignatura=nombreasignaturaInput.value;
-    const apellidoasignatura=apellidoasignaturaInput.value;
-    const tipoid_doc=tipoid_docInput.value;
-    const doc_asignatura=doc_asignaturaInput.value;
-    const dep_id=dep_idInput.value;
+
+
+    const programa=programaInput.value;
+    const curso=cursoInput.value;
+    const codigo=codigoInput.value;
+    const creditos=creditosInput.value;
+    const profesor=profesorInput.value;
+    const cupos=cuposInput.value;
 
     const nuevoasignatura={
         id:listaAsignaturas.length+1,
-        nombre: nombreasignatura,
-        apellido: apellidoasignatura,
-        tipo_documento: tipoid_doc,
-        numero_documento: doc_asignatura,
-        departamento_id: dep_id
+        curso_id: 1,
+        codigo: codigo,
+        creditos: creditos,
+        profesor_id: profesor,
+        cupos_disponibles: cupos,
+        programa_id: programa,
+        horario_clases: [
+            {
+              dia: dia1,
+              hora_inicio: inicioDia1,
+              hora_fin: finDia1,
+              salon_id: 1,
+            },
+            {
+                "dia": "Martes",
+                "hora_inicio": "08:00",
+                "hora_fin": "10:00",
+                "salon_id": 1
+            }
+          ]
+
     }
 
     guardarAsignatura(nuevoasignatura);
