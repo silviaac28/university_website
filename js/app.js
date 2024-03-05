@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     loadMatriculas();
     loadPeriodos();
     loadTarifas();
+    paginaPrincipal();
 
 })

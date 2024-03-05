@@ -59,10 +59,10 @@ const submitAsignaturas=()=>{
               salon_id: 1,
             },
             {
-                "dia": "Martes",
-                "hora_inicio": "08:00",
-                "hora_fin": "10:00",
-                "salon_id": 1
+                dia: dia2,
+                hora_inicio: inicioDia2,
+                hora_fin: finDia2,
+                salon_id: 1,
             }
           ]
 
@@ -108,3 +108,16 @@ const guardarAsignatura= async(nuevoasignatura)=>{
 }
 
 console.log(listaAsignaturas);
+
+
+const cargarProgramas=()=>{
+    const programaInput=document.getElementById("programa");
+    let datos = '';
+    for ( const program of listaProgramas){
+        datos+=`<option value="${program.id}">${program.nombre}</option>`
+     
+    }
+    console.log(datos)
+
+    programaInput.innerHTML=datos;
+}
