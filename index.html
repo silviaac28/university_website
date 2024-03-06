@@ -17,8 +17,8 @@
             <a class="navbar-brand" href="#">Sabios's University</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li class="active"><a onclick="cargarPeriodosTabla()">Periodos</a></li>
+            <li class="active"><a onclick="paginaPrincipal()">Home</a></li>
+            <li class="active"><a onclick="paginaPeriodos()">Periodos</a></li>
             
             <!-- LISTA DESPLEGABLE EN NAV
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Periodos<span class="caret"></span></a>
@@ -28,13 +28,14 @@
               </ul>
             </li> --------->
             <li><a onclick="paginaDepartamentos()">Departamentos</a></li>
-            <li><a onclick="cargarProgramasTabla()">Programas</a></li>
-            <li><a onclick="cargarTarifasTabla()">Tarifas</a></li>
-            <li><a onclick="cargarCursosTabla()">Cursos</a></li>
+            <li><a onclick="paginaProgramas()">Programas</a></li>
+            <li><a onclick="paginaTarifas()">Tarifas</a></li>
+            <li><a onclick="paginaCursos()">Cursos</a></li>
+            <li><a onclick="paginaSalones()">Salones</a></li>
             
-            <li><a onclick="cargarProgramasAlum()">Alumnos</a></li>
-            <li><a onclick="cargarDepartamentos()">Docentes</a></li>
-            <li><a onclick="cargarProgramas()">Asignaturas</a></li>
+            <li><a onclick="formAlumnos()">Alumnos</a></li>
+            <li><a onclick="formDocentes()">Docentes</a></li>
+            <li><a onclick="formAsignaturas()">Asignaturas</a></li>
             <li><a href="#">Matriculas</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -137,6 +138,24 @@
   </div>
 
 
+    <!-- TABLA SALONES  -->
+
+    <div id="pagSalones">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Capacidad</th>
+                  <th scope="col">Edificio</th>
+                  <th scope="col">Piso</th>
+                  <th scope="col">Número de identificación</th>
+                </tr>
+              </thead>
+              <tbody id="tablaSalones">
+        
+              </tbody>
+          </table>
+    </div>
       
 <!----------- FORMULARIO ALUMNOS  ------------>
 
@@ -194,14 +213,10 @@
 
             <select id="idprogram" class="form-select">
 
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
             </select>
           </div>
 
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block"><span>Submit</span></button></div>
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAlumno()">Submit</button></div>
           </div>
           </div>
         </form>
@@ -254,7 +269,7 @@
             </select>
           </div>
 
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" ><span>Submit</span></button></div>
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitDocente()">Submit</button></div>
           </div>
           </div>
         </form>
@@ -294,8 +309,6 @@
 
             <select id="curso" class="form-select">
 
-              <option>1</option>
-              <option>2</option>
             </select>
           </div>
 
@@ -309,8 +322,6 @@
 
             <select id="profesor" class="form-select">
 
-              <option>1</option>
-              <option>2</option>
             </select>
           </div>
             
@@ -318,9 +329,9 @@
 
           <div class="mb-3">
 
-            <label for="dia1" class="form-label">Dia</label>
+            <label for="dia" class="form-label">Dia</label>
 
-            <select id="dia1" class="form-select">
+            <select id="dia" class="form-select">
 
               <option>Lunes</option>
               <option>Martes</option>
@@ -330,15 +341,26 @@
             </select>
           </div>
 
-          <div class="form-group"><input type="time" class="form-control" id="inicioDia1" required><label class="form-control-placeholder" for="inicioDia1">Hora de inicio de clase</label></div>
+          <div class="mb-3">
 
-          <div class="form-group"><input type="time" class="form-control" id="finDia1" required><label class="form-control-placeholder" for="finDia1">Hora fin de clase</label></div>
+            <label for="horario" class="form-label">Horario</label>
 
-          <div class="form-group"><input type="time" class="form-control" id="inicioDia2" required><label class="form-control-placeholder" for="inicioDia2">Hora de inicio de clase</label></div>
+              <select id="horario" class="form-select">
 
-          <div class="form-group"><input type="time" class="form-control" id="finDia2" required><label class="form-control-placeholder" for="finDia2">Hora fin de clase</label></div>
+                <option value="">6:00-8:00 a.m.</option>
+                <option>8:00-10:00 a.m.</option>
+                <option>10:00-12:00 m.</option>
+                <option>12:00-2:00 p.m.</option>
+                <option>2:00-4:00 p.m.</option>
+                <option>4:00-6:00 p.m.</option>
+                <option>6:00-8:00 p.m.</option>
+            </select>
+          </div>
 
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block"><span>Submit</span></button></div>
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="anadirDia()">Agregar día de clase</button></div>
+
+
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAsignaturas()">Submit</button></div>
           </div>
           </div>
         </form>

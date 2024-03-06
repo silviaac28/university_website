@@ -17,3 +17,26 @@ const loadSalones= async()=>{
         console.error("Error al cargar Salones",error.message);
     }
 }
+
+
+const cargarSalonesTabla=()=>{
+    const salonesInput=document.getElementById("tablaSalones");
+    let datos = '';
+    for ( const salon of listaSalones){
+        datos+=`<tr>
+
+        <td>${salon.id}</td>
+        <td>${salon.capacidad_alumnos}</td>
+        <td>${salon.edificio}</td>
+        <td>${salon.piso}</td>
+        <td>${salon.numero_identificacion}</td>
+
+
+        </tr>`
+    }
+    console.log(datos)
+
+    salonesInput.innerHTML=datos;
+
+
+}

@@ -59,6 +59,14 @@
       "nombre": "María",
       "apellido": "Gómez",
       "departamento_id": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Brandon",
+      "apellido": "Camargo",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "696969",
+      "departamento_id": "1"
     }
   ],
   "alumnos": [
@@ -87,6 +95,45 @@
       "fecha_nacimiento": "1992-05-15",
       "sexo": "Femenino",
       "programa_id": 2
+    },
+    {
+      "id": "3",
+      "nombre": "",
+      "apellido": "",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "",
+      "ciudad_residencia": "",
+      "direccion": "",
+      "telefono": "",
+      "fecha_nacimiento": "",
+      "sexo": "Masculino",
+      "programa_id": "1"
+    },
+    {
+      "id": 4,
+      "nombre": "Anddd",
+      "apellido": "Zzzzz",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "88888",
+      "ciudad_residencia": "",
+      "direccion": "",
+      "telefono": "",
+      "fecha_nacimiento": "",
+      "sexo": "Masculino",
+      "programa_id": "1"
+    },
+    {
+      "id": 5,
+      "nombre": "aaa",
+      "apellido": "",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "",
+      "ciudad_residencia": "",
+      "direccion": "",
+      "telefono": "",
+      "fecha_nacimiento": "",
+      "sexo": "Masculino",
+      "programa_id": "1"
     }
   ],
   "cursos": [
@@ -160,7 +207,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "curso_id": 2,
       "codigo": "",
       "creditos": null,

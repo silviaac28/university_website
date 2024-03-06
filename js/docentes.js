@@ -43,7 +43,7 @@ const submitDocente=()=>{
         departamento_id: dep_id
     }
 
-    guardarDocente(nuevoDocente);
+    guardarDocente(nuevodocente);
 
     nombreDocenteInput=value='';
     apellidoDocenteInput=value='';
@@ -61,7 +61,7 @@ const submitDocente=()=>{
 const guardarDocente= async(nuevodocente)=>{
     try{
 
-        const respuesta=await fetch('http://localhost:3000/Docentes',{
+        const respuesta=await fetch('http://localhost:3000/profesores',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

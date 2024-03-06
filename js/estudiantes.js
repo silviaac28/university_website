@@ -21,6 +21,7 @@ const loadAlumnos= async()=>{
 
 
 const submitAlumno=()=>{
+    console.log("aqui estoy")
     const nombreAlumInput=document.getElementById("nombreAlum")
     const apellidoAlumInput=document.getElementById("apellidoAlum")
     const tipoIDInput=document.getElementById("tipoid")

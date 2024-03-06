@@ -35,5 +35,4 @@ const cargarDepartamentosTabla=()=>{
 
     dep_idInput.innerHTML=datos;
 
-
 }

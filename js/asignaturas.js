@@ -53,9 +53,9 @@ const submitAsignaturas=()=>{
         programa_id: programa,
         horario_clases: [
             {
-              dia: dia1,
-              hora_inicio: inicioDia1,
-              hora_fin: finDia1,
+              dia: dia,
+              hora_inicio: inicioDia,
+              hora_fin: finDia,
               salon_id: 1,
             },
             {
@@ -120,4 +120,93 @@ const cargarProgramas=()=>{
     console.log(datos)
 
     programaInput.innerHTML=datos;
+}
+
+const cargarCursos=()=>{
+    const cursoInput=document.getElementById("curso");
+    let datos = '';
+    for ( const curso of listaCursos){
+        datos+=`<option value="${curso.id}">${curso.nombre}</option>`
+     
+    }
+    console.log(datos)
+
+    cursoInput.innerHTML=datos;
+}
+
+const cargarProfesores=()=>{
+    const profesorInput=document.getElementById("profesor");
+    let datos = '';
+    for ( const profesor of listaDocentes){
+        datos+=`<option value="${profesor.id}">${profesor.nombre}</option>`
+     
+    }
+    console.log(datos)
+
+    profesorInput.innerHTML=datos;
+}
+
+
+/*
+
+const anadirDia = () => {
+    var selectdia = document.createElement('selectdia'); // Crea un elemento select
+    selectdia.setAttribute('class', 'block'); // Asigna la clase 'block' al select
+
+    var opciones = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes" ];
+
+    opciones.forEach(opcion => {
+        var option = document.createElement('option'); // Crea un elemento option
+        option.textContent = opcion; // Establece el texto de la opción
+        selectdia.appendChild(option); // Agrega la opción al select
+    });
+
+    document.getElementById("formAsignaturas").appendChild(selectdia); // Agrega el select al contenedor
+}
+
+*/
+
+const anadirDia = () => {
+    var div = document.createElement('div');//Crea un div
+	div.setAttribute('class', 'block');//Da classe block al div
+	div.textContent="Dia"//contenido del div
+
+    var select = document.createElement('select'); // Crea un elemento select
+    select.setAttribute('class', 'block'); // Asigna la clase 'block' al select
+
+    // Opciones para el select
+    var opciones = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
+
+    // Itera sobre las opciones y crea un elemento <option> para cada una
+    opciones.forEach(opcion => {
+        var option = document.createElement('option'); // Crea un elemento option
+        option.textContent = opcion; // Establece el texto de la opción
+        select.appendChild(option); // Agrega la opción al select
+    });
+
+    /*HORARIO*/
+
+    var div2 = document.createElement('div2');//Crea un div
+	div2.setAttribute('class', 'block');//Da classe block al div
+	div2.textContent="Horario"//contenido del div
+
+    var select2 = document.createElement('select2'); // Crea un elemento select
+    select2.setAttribute('class', 'block'); // Asigna la clase 'block' al select
+
+    // Opciones para el select
+    var opciones2 = ["8-10", "10-12"];
+
+    // Itera sobre las opciones y crea un elemento <option> para cada una
+    opciones2.forEach(opcion => {
+        var option2 = document.createElement('option2'); // Crea un elemento option
+        option2.textContent = opcion; // Establece el texto de la opción
+        select2.appendChild(option2); // Agrega la opción al select
+    });
+
+    document.getElementById("formAsignaturas").appendChild(select); // Agrega el select al contenedor
+    document.getElementById("formAsignaturas").appendChild(div);//Donde aparece el div
+    document.getElementById("formAsignaturas").appendChild(select2); // Agrega el select al contenedor
+    document.getElementById("formAsignaturas").appendChild(div2);//Donde aparece el div
+    
+    
 }
