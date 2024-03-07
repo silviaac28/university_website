@@ -61,7 +61,7 @@
       "departamento_id": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Brandon",
       "apellido": "Camargo",
       "tipo_documento": "Cédula de Ciudadania",
@@ -110,7 +110,7 @@
       "programa_id": "1"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Anddd",
       "apellido": "Zzzzz",
       "tipo_documento": "Cédula de Ciudadania",
@@ -123,7 +123,7 @@
       "programa_id": "1"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "aaa",
       "apellido": "",
       "tipo_documento": "Cédula de Ciudadania",
@@ -228,6 +228,66 @@
           "salon_id": 1
         }
       ]
+    },
+    {
+      "id": 4,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 5,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 6,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 7,
+      "curso_id": 1,
+      "codigo": "90",
+      "creditos": "80",
+      "profesor_id": "1",
+      "cupos_disponibles": "20",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 8,
+      "curso_id": 1,
+      "codigo": "ca96",
+      "creditos": "12",
+      "profesor_id": "1",
+      "cupos_disponibles": "34",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 9,
+      "curso_id": 1,
+      "codigo": "ca120",
+      "creditos": "10",
+      "profesor_id": "1",
+      "cupos_disponibles": "20",
+      "programa_id": "1",
+      "horario_clases": []
     }
   ],
   "matriculas": [

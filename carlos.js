@@ -33,7 +33,7 @@ let horaInicio = ""
         }
         horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
     });
-ºººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººººº
+
 
 
 const agregarHorario = () => {
@@ -42,29 +42,7 @@ const agregarHorario = () => {
     const nuevoHorario = document.createElement('div');
     nuevoHorario.classList.add('horario');
     nuevoHorario.innerHTML = 
-        <label for="diaSemana">Día de la Semana:</label>
-        <select class="diaSemana">
-            <option value="lunes">Lunes</option>
-            <option value="martes">Martes</option>
-            <option value="miercoles">Miércoles</option>
-            <option value="jueves">Jueves</option>
-            <option value="viernes">Viernes</option>
-        </select>
-
-        <label for="franja-horaria">Horario:</label>
-        <select class="franja-horaria" required>
-            <option value = "horario1"> 6:00 am - 8:00 am </option>
-            <option value = "horario2"> 8:00 am - 10:00 pm </option>
-            <option value = "horario3"> 10:00 am - 12:00 pm </option>
-            <option value = "horario4"> 12:00 pm - 2:00 pm </option>
-            <option value = "horario5"> 2:00 pm - 4:00 pm </option>
-            <option value = "horario6"> 4:00 pm - 6:00 pm </option>
-        </select>
-
-        <label for="salonHorarioAsignatura">Salón:</label>
-        <select class="salonHorarioAsignatura" required>
-            ${salonHorarioPrograma()}
-        </select>
+        getElementById('horarios_seleccion');
     ;
 
     horariosContainer.appendChild(nuevoHorario);
