@@ -17,3 +17,37 @@ const loadMatriculas= async()=>{
         console.error("Error al cargar matriculas",error.message);
     }
 }
+
+
+const cargarEstudiantes=()=>{
+    const estudianteInput=document.getElementById("estudiante");
+    let datos = '';
+    for ( const alumno of listaAlumnos){
+        datos+=`<option value="${alumno.id}">${alumno.nombre} ${alumno.apellido}</option>` 
+    }
+    console.log(datos)
+
+    estudianteInput.innerHTML=datos;
+}
+
+const cargarAsignaturas=()=>{
+    const asignaturaInput=document.getElementById("asignatura");
+    let datos = '';
+    for ( const asignat of listaAsignaturas){
+        datos+=`<option value="${asignat.id}">${asignat.codigo}</option>` 
+    }
+    console.log(datos)
+
+    asignaturaInput.innerHTML=datos;
+}
+
+const cargarPeriodos=()=>{
+    const periodoInput=document.getElementById("periodo");
+    let datos = '';
+    for ( const period of listaPeriodos){
+        datos+=`<option value="${period.id}">${period.codigo}</option>` 
+    }
+    console.log(datos)
+
+    periodoInput.innerHTML=datos;
+}

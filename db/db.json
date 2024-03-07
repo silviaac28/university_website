@@ -230,7 +230,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -240,7 +240,7 @@
       "horario_clases": []
     },
     {
-      "id": 5,
+      "id": "5",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -250,7 +250,7 @@
       "horario_clases": []
     },
     {
-      "id": 6,
+      "id": "6",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -260,7 +260,7 @@
       "horario_clases": []
     },
     {
-      "id": 7,
+      "id": "7",
       "curso_id": 1,
       "codigo": "90",
       "creditos": "80",
@@ -270,7 +270,7 @@
       "horario_clases": []
     },
     {
-      "id": 8,
+      "id": "8",
       "curso_id": 1,
       "codigo": "ca96",
       "creditos": "12",
@@ -280,7 +280,7 @@
       "horario_clases": []
     },
     {
-      "id": 9,
+      "id": "9",
       "curso_id": 1,
       "codigo": "ca120",
       "creditos": "10",
@@ -288,6 +288,109 @@
       "cupos_disponibles": "20",
       "programa_id": "1",
       "horario_clases": []
+    },
+    {
+      "id": "1",
+      "curso_id": 1,
+      "codigo": "85",
+      "creditos": "20",
+      "profesor_id": "",
+      "cupos_disponibles": "40",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 11,
+      "curso_id": 1,
+      "codigo": "6666666666666666666666666666666666",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        "hola"
+      ]
+    },
+    {
+      "id": 12,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "555555",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        "hola"
+      ]
+    },
+    {
+      "id": 13,
+      "curso_id": 1,
+      "codigo": "11111111111111111111111111111111111",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        {
+          "dia": "jueves",
+          "hora_inicio": "2:00 pm",
+          "hora_fin": "4:00 pm",
+          "salon_id": ""
+        },
+        {
+          "dia": "jueves",
+          "hora_inicio": "2:00 pm",
+          "hora_fin": "4:00 pm",
+          "salon_id": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        {
+          "dia": "lunes",
+          "hora_inicio": "6:00 am",
+          "hora_fin": "8:00 am",
+          "salon_id": ""
+        },
+        {
+          "dia": "lunes",
+          "hora_inicio": "6:00 am",
+          "hora_fin": "8:00 am",
+          "salon_id": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        {
+          "dia": "martes",
+          "hora_inicio": "10:00 am",
+          "hora_fin": "12:00 pm",
+          "salon_id": ""
+        },
+        {
+          "dia": "martes",
+          "hora_inicio": "10:00 am",
+          "hora_fin": "12:00 pm",
+          "salon_id": ""
+        }
+      ]
     }
   ],
   "matriculas": [

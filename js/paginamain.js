@@ -8,6 +8,7 @@ const pagSalonesInput = document.getElementById('pagSalones')
 const formAlumnosInput = document.getElementById('formAlumnos')
 const formDocentesInput = document.getElementById('formDocentes')
 const formAsignaturasInput = document.getElementById('formAsignaturas')
+const formMatriculasInput = document.getElementById('formMatriculas')
 
 
 
@@ -23,6 +24,7 @@ const paginaPrincipal=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 }
 
 
@@ -37,6 +39,7 @@ const paginaDepartamentos=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarDepartamentosTabla()
 }
@@ -52,6 +55,7 @@ const paginaProgramas=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarProgramasTabla()
 }
@@ -67,6 +71,7 @@ const paginaPeriodos=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarPeriodosTabla()
 }
@@ -82,6 +87,7 @@ const paginaCursos=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarCursosTabla()
 }
@@ -97,6 +103,7 @@ const paginaTarifas=()=>{
     formAlumnosInput.style.display="none";
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarTarifasTabla()
 }
@@ -113,6 +120,7 @@ const paginaSalones=()=>{
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
     pagSalonesInput.style.display="block";
+    formMatriculasInput.style.display="none";
 
     cargarSalonesTabla()
 }
@@ -129,6 +137,7 @@ const formAlumnos=()=>{
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
     pagSalonesInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarProgramasAlum()
 }
@@ -146,6 +155,7 @@ const formDocentes=()=>{
     formDocentesInput.style.display="block";
     formAsignaturasInput.style.display="none";
     pagSalonesInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarDepartamentos()
     
@@ -163,10 +173,31 @@ const formAsignaturas=()=>{
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="block";
     pagSalonesInput.style.display="none";
+    formMatriculasInput.style.display="none";
 
     cargarProgramas()
     cargarCursos()
     cargarProfesores()
 }
 
+
+const formMatriculas=()=>{
+    homeInput.style.display="none";
+    pagDepartamentosInput.style.display="none";
+    pagPeriodosInput.style.display="none";
+    pagProgramasInput.style.display="none";
+    pagTarifasInput.style.display="none";
+    pagCursosInput.style.display="none";
+    pagSalonesInput.style.display="none";
+    formAlumnosInput.style.display="none";
+    formDocentesInput.style.display="none";
+    formAsignaturasInput.style.display="none";
+    pagSalonesInput.style.display="none";
+    formMatriculasInput.style.display="block";
+
+
+    cargarEstudiantes()
+    cargarAsignaturas()
+    cargarPeriodos()
+}
 
