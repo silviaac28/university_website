@@ -2,10 +2,17 @@
   "periodos": [
     {
       "id": "1",
+      "codigo": "P23-02",
+      "ano": 2023,
+      "semestre": 2
+    },  
+      {
+      "id": "2",
       "codigo": "P24-01",
       "ano": 2024,
       "semestre": 1
     }
+
   ],
   "programas": [
     {
@@ -300,7 +307,7 @@
       "horario_clases": []
     },
     {
-      "id": 11,
+      "id": "11",
       "curso_id": 1,
       "codigo": "6666666666666666666666666666666666",
       "creditos": "",
@@ -312,7 +319,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "curso_id": 1,
       "codigo": "",
       "creditos": "555555",
@@ -324,7 +331,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "curso_id": 1,
       "codigo": "11111111111111111111111111111111111",
       "creditos": "",
@@ -347,7 +354,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -370,7 +377,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -391,6 +398,56 @@
           "salon_id": ""
         }
       ]
+    },
+    {
+      "id": 16,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 17,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 18,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 19,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 20,
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
     }
   ],
   "matriculas": [

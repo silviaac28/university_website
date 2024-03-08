@@ -25,6 +25,8 @@ const paginaPrincipal=()=>{
     formDocentesInput.style.display="none";
     formAsignaturasInput.style.display="none";
     formMatriculasInput.style.display="none";
+
+    cargarMatriculasTabla()
 }
 
 
@@ -194,7 +196,6 @@ const formMatriculas=()=>{
     formAsignaturasInput.style.display="none";
     pagSalonesInput.style.display="none";
     formMatriculasInput.style.display="block";
-
 
     cargarEstudiantes()
     cargarAsignaturas()

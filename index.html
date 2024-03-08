@@ -156,6 +156,12 @@
               </tbody>
           </table>
     </div>
+
+      <!-- TABLA MATRICULAS  -->
+
+    <div id="pagMatriculas">
+          
+        </div>
       
 <!----------- FORMULARIO ALUMNOS  ------------>
 
@@ -331,7 +337,7 @@
 
 
 
-            
+    
           </div>
 
 
@@ -395,18 +401,30 @@
             
           
 
-          <div class="horario" id="horarios-container">
-
-
-
-            
+          <div id="matricula-container">
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Estudiante</th>
+                        <th scope="col">Asignatura</th>
+                        <th scope="col">Periodo</th>
+                        <th scope="col">credito</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tablaMatriculas">
+              
+                    </tbody>
+                </table>
           </div>
 
 
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarHorario()">Agregar otra matricula</button></div>
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Agregar otra matricula</button></div>
 
 
           <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAsignaturas()">Confirmar matricula</button></div>
+
+        
           </div>
           </div>
         </form>
