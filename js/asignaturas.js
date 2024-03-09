@@ -192,7 +192,7 @@ const cargarProfesores=()=>{
         datos+=`<option value="${profesor.id}">${profesor.nombre}</option>`
      
     }
-    console.log(datos)
+
 
     profesorInput.innerHTML=datos;
 }
