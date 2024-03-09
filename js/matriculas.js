@@ -152,6 +152,8 @@ const asignatura=asignaturaInput.value;
 asignaturasAnadidas[item]=asignatura;
 item =item+1;
 console.log(asignaturasAnadidas)
+
+
 const periodo=periodoInput.value;
     const matriculaContainer = document.getElementById('tablaMatriculas');
     const nuevaMatricula = document.createElement('tr');
