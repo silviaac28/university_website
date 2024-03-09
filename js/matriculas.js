@@ -1,6 +1,8 @@
 const listaMatriculas=[];
-
+let precio1 = 0;
 let item=0;
+let asignaturasAnadidas= [];
+
 const loadMatriculas= async()=>{
    
     try{
@@ -72,67 +74,73 @@ const cargarPeriodos=()=>{
     periodoInput.innerHTML=datos;
 }
 
-/*
-var encontrados = listaTarifas.filter(function (elemento) {
-    return elemento.periodo_id == dataPeriod && elemento.programa_id == dataPrograma // ◄ Aquí se desea que aplique el arreglo comparaciones 
-});
-
-*/
-
-const submitMatriculas=()=>{
-    const estudianteInput=document.getElementById("estudiante")
-    const asignaturaInput=document.getElementById("asignatura")
-    const periodoInput=document.getElementById("periodo")
-    const precioInput=document.getElementById("precio")
-
-    const estudiante=estudianteInput.value;
-    const asignatura=asignaturaInput.value;
-    const periodo=periodoInput.value;
-    const precio=precioInput.value;
-
-    const nuevaMatricula={
-        id:listaMatriculas.length+1,
-        estudiante_id: estudiante,
-        asignatura_id: asignatura,
-        periodo_id: periodo,
-        precio: precio
+const cargarTarifas=()=>{
+    const tarifaInput=document.getElementById("tablaTarifas");
+    let datos = '';
+    for ( const tarifa of listaTarifas){
+        datos+=`<option value="${tarifa.id}">${tarifa.costo_credito}</option>` 
     }
+    console.log(datos)
+
+    tarifaInput.innerHTML=datos;
+}
+
+
+
+const submitMatriculas = () => {
+    const estudianteInput = document.getElementById("estudiante");
+    const asignaturaInput = document.getElementById("asignatura");
+    const periodoInput = document.getElementById("periodo");
+
+    const estudiante = estudianteInput.value;
+    const asignatura = asignaturaInput.value;
+    const periodo = periodoInput.value;
+
+    // Filtrar tarifas para encontrar la correspondiente al período y asignatura seleccionados
+
+
+    // Si se encontró al menos una tarifa, asignar el precio de la primera a la nueva matrícula
+    
+    const nuevaMatricula = {
+        id: listaMatriculas.length + 1,
+        estudiante_id: estudiante,
+        asignatura_id: asignaturasAnadidas,
+        periodo_id: periodo,
+        precio: precio1 // Asignar el precio obtenido de la tarifa encontrada
+    };
 
     guardarMatricula(nuevaMatricula);
+};
 
 
-    alert('Matricula realizada con éxito!');
-
-
-}
-
-const guardarMatricula= async(nuevaMatricula)=>{
-    try{
-
-        const respuesta=await fetch('http://localhost:3000/matriculas',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify(nuevaMatricula),
-        });
-
-        if(!respuesta.ok){
-           throw new Error('Error al crear la matricula. Estado: ',respuesta.status);
+    const guardarMatricula= async(nuevaMatricula)=>{
+        console.log("holaaaaaaaaaaa")
+        try{
+    
+            const respuesta=await fetch('http://localhost:3000/matriculas',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(nuevaMatricula),
+            });
+    
+            if(!respuesta.ok){
+               throw new Error('Error al crear la matricula. Estado: ',respuesta.status);
+            }
+            const matriculaCreada=await respuesta.json();
+           
+            
+            console.log('docente creado:', matriculaCreada);
+    
+        }catch(error){
+            console.error("Error al cargar Matriculas",error.message);
         }
-        const matriculaCreada=await respuesta.json();
-       
-        
-        console.log('Matricula creado:', matriculaCreada);
-
-    }catch(error){
-        console.error("Error al cargar Matricula",error.message);
     }
-}
 
 
 const agregarMatricula = () => {
-item =item+1;
+
 const estudianteInput=document.getElementById("estudiante")
 const asignaturaInput=document.getElementById("asignatura")
 const periodoInput=document.getElementById("periodo")
@@ -140,24 +148,39 @@ const precioInput=document.getElementById("precio")
 
 const estudiante=estudianteInput.value;
 const asignatura=asignaturaInput.value;
+
+asignaturasAnadidas[item]=asignatura;
+item =item+1;
+console.log(asignaturasAnadidas)
 const periodo=periodoInput.value;
     const matriculaContainer = document.getElementById('tablaMatriculas');
-    const nuevoMatricula = document.createElement('tr');
-    nuevoMatricula.classList.add('matricula');
+    const nuevaMatricula = document.createElement('tr');
+    nuevaMatricula.classList.add('matricula');
+
     console.log(listaAlumnos[estudiante-1].nombre)
-    nuevoMatricula.innerHTML = `
+    const encontrados = listaTarifas.filter(function (elemento) {
+
+        console.log(elemento.periodo_id)
+        console.log(periodo)
+        console.log(elemento.programa_id)
+        console.log(asignatura)
+        return elemento.periodo_id == periodo && elemento.programa_id == asignatura;
+    });
+
+    console.log(encontrados)
+        precio1 = encontrados[0].costo_credito; // Suponiendo que la tarifa tiene un atributo 'costo_credito'
+    
+    console.log(precio1)
+    nuevaMatricula.innerHTML = `
     <td>${item}</td>
     <td>${listaAlumnos[estudiante-1].nombre}</td>
     <td>${listaAsignaturas[asignatura-1].codigo}</td>
     <td>${listaPeriodos[periodo-1].codigo}</td>
-
-   
-    
+    <td>${precio1}</td>
     `
     ;
-    matriculaContainer.appendChild(nuevoMatricula);
-
-   
+    matriculaContainer.appendChild(nuevaMatricula);
+    
 
 }; 
 

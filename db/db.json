@@ -5,14 +5,13 @@
       "codigo": "P23-02",
       "ano": 2023,
       "semestre": 2
-    },  
-      {
+    },
+    {
       "id": "2",
       "codigo": "P24-01",
       "ano": 2024,
       "semestre": 1
     }
-
   ],
   "programas": [
     {
@@ -73,6 +72,14 @@
       "apellido": "Camargo",
       "tipo_documento": "Cédula de Ciudadania",
       "numero_documento": "696969",
+      "departamento_id": "1"
+    },
+    {
+      "id": "4",
+      "nombre": "ferferf",
+      "apellido": "frrerff",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "3243235435",
       "departamento_id": "1"
     }
   ],
@@ -400,7 +407,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -410,7 +417,7 @@
       "horario_clases": []
     },
     {
-      "id": 17,
+      "id": "17",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -420,7 +427,7 @@
       "horario_clases": []
     },
     {
-      "id": 18,
+      "id": "18",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -430,7 +437,7 @@
       "horario_clases": []
     },
     {
-      "id": 19,
+      "id": "19",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -440,7 +447,7 @@
       "horario_clases": []
     },
     {
-      "id": 20,
+      "id": "20",
       "curso_id": 1,
       "codigo": "",
       "creditos": "",
@@ -448,6 +455,93 @@
       "cupos_disponibles": "",
       "programa_id": "",
       "horario_clases": []
+    },
+    {
+      "id": "21",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "22",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "23",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "24",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "25",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "26",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": "27",
+      "curso_id": 1,
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "",
+      "cupos_disponibles": "",
+      "programa_id": "",
+      "horario_clases": []
+    },
+    {
+      "id": 28,
+      "curso_id": 1,
+      "codigo": "4447474747",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "20",
+      "programa_id": "1",
+      "horario_clases": [
+        {
+          "dia": "martes",
+          "hora_inicio": "6:00 am",
+          "hora_fin": "8:00 am",
+          "salon_id": ""
+        }
+      ]
     }
   ],
   "matriculas": [
@@ -464,6 +558,146 @@
       "asignatura_id": 2,
       "periodo_id": 1,
       "precio": 3300
+    },
+    {
+      "id": 3,
+      "estudiante_id": "1",
+      "asignatura_id": "1",
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 4,
+      "estudiante_id": "2",
+      "asignatura_id": "1",
+      "periodo_id": "2",
+      "precio": ""
+    },
+    {
+      "id": 5,
+      "estudiante_id": "2",
+      "asignatura_id": "1",
+      "periodo_id": "2",
+      "precio": ""
+    },
+    {
+      "id": 6,
+      "estudiante_id": "1",
+      "asignatura_id": "2",
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 7,
+      "estudiante_id": "2",
+      "asignatura_id": "1",
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 8,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1",
+        "2"
+      ],
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 9,
+      "estudiante_id": "2",
+      "asignatura_id": [
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 10,
+      "estudiante_id": "2",
+      "asignatura_id": [
+        "1",
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 11,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1",
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 12,
+      "estudiante_id": "2",
+      "asignatura_id": [
+        "1",
+        "2"
+      ],
+      "periodo_id": "1",
+      "precio": ""
+    },
+    {
+      "id": 13,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1",
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": 0
+    },
+    {
+      "id": 14,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": 0
+    },
+    {
+      "id": 15,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": 0
+    },
+    {
+      "id": 16,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": 1000
+    },
+    {
+      "id": 17,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1",
+        "2"
+      ],
+      "periodo_id": "1",
+      "precio": 1100
+    },
+    {
+      "id": 18,
+      "estudiante_id": "1",
+      "asignatura_id": [
+        "1"
+      ],
+      "periodo_id": "1",
+      "precio": 1000
     }
   ]
 }
