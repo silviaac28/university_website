@@ -1,5 +1,7 @@
 const listaAsignaturas=[];
 
+let salonCount = 1;
+
 
 const loadAsignaturas= async()=>{
    
@@ -38,7 +40,7 @@ const submitAsignaturas=()=>{
     const horariosInputs = document.querySelectorAll('.horario');
     horariosInputs.forEach(horarioInput => {
         const diaSemana = horarioInput.querySelector('.diaSemana').value;
-        const salonHora = horarioInput.querySelector('.salonHorarioAsignatura').value;
+        const salonHora = parseInt(horarioInput.querySelector('.salonHorarioAsignatura').value);
         if(horarioInput.querySelector('.franja-horaria').value === "horario1"){
             horaInicio = "6:00 am"
             horaFin = "8:00 am"
@@ -69,16 +71,16 @@ const submitAsignaturas=()=>{
     });
 
     
-    const programa=programaInput.value;
-    const curso=cursoInput.value;
+    const programa=parseInt(programaInput.value);
+    const curso=parseInt(cursoInput.value);
     const codigo=codigoInput.value;
-    const creditos=creditosInput.value;
-    const profesor=profesorInput.value;
-    const cupos=cuposInput.value;
+    const creditos=parseInt(creditosInput.value);
+    const profesor= parseInt(profesorInput.value);
+    const cupos= parseInt(cuposInput.value);
 
     const nuevoasignatura={
         id:listaAsignaturas.length+1,
-        curso_id: 1,
+        curso_id: curso,
         codigo: codigo,
         creditos: creditos,
         profesor_id: profesor,
@@ -98,7 +100,6 @@ const submitAsignaturas=()=>{
 
 
 const agregarHorario = () => {
-
     const horariosContainer = document.getElementById('horarios-container');
     const nuevoHorario = document.createElement('div');
     nuevoHorario.classList.add('horario');
@@ -123,13 +124,14 @@ const agregarHorario = () => {
         </select>
 
         <label for="salonHorarioAsignatura">Salón:</label>
-        <select class="salonHorarioAsignatura" required>
-        </select>`
-    ;
+        <select class="salonHorarioAsignatura" id="salon${salonCount}" required>
+        </select>`;
 
     horariosContainer.appendChild(nuevoHorario);
 
-}; 
+    cargarSalones(`salon${salonCount}`); // Llamada a la función cargarSalones con un ID único
+    salonCount++; // Incremento del contador para el próximo select de salones
+};
 
 
 
@@ -196,3 +198,13 @@ const cargarProfesores=()=>{
 
     profesorInput.innerHTML=datos;
 }
+
+
+const cargarSalones = (salonId) => {
+    const salonInput = document.getElementById(salonId);
+    let datos = '';
+    for (const salon of listaSalones) {
+        datos += `<option value="${salon.id}">${salon.numero_identificacion}</option>`;
+    }
+    salonInput.innerHTML = datos;
+};

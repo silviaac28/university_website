@@ -42,7 +42,7 @@ const submitAlumno=()=>{
     const telefono=telefonoInput.value;
     const fecha=fechaInput.value;
     const genero=generoInput.value;
-    const programAlum=programAlumInput.value;
+    const programAlum = parseInt(programAlumInput.value);
 
     const nuevoAlumno={
         id:listaAlumnos.length+1,

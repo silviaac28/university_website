@@ -32,7 +32,7 @@ const submitDocente=()=>{
     const apellidoDocente=apellidoDocenteInput.value;
     const tipoid_doc=tipoid_docInput.value;
     const doc_docente=doc_docenteInput.value;
-    const dep_id=dep_idInput.value;
+    const dep_id= parseInt(dep_idInput.value);
 
     const nuevodocente={
         id:listaDocentes.length+1,
