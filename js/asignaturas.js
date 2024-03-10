@@ -1,37 +1,29 @@
-const listaAsignaturas=[];
+const listaAsignaturas = [];
 
 let salonCount = 1;
 
+const loadAsignaturas = async () => {
+    try {
+        listaAsignaturas.length = 0;
+        const respuesta = await fetch('http://localhost:3000/asignaturas');
 
-const loadAsignaturas= async()=>{
-   
-    try{
-        listaAsignaturas.length=0;
-        const respuesta=await fetch('http://localhost:3000/asignaturas');
-
-        if(!respuesta.ok){
-           throw new Error('Error al cargar asignatura. Estado: ',respuesta.status);
+        if (!respuesta.ok) {
+            throw new Error('Error al cargar asignatura. Estado: ', respuesta.status);
         }
-        const Asignaturas=await respuesta.json();
+        const Asignaturas = await respuesta.json();
         listaAsignaturas.push(...Asignaturas);
-
-    }catch(error){
-        console.error("Error al cargar Asignaturas",error.message);
+    } catch (error) {
+        console.error("Error al cargar Asignaturas", error.message);
     }
-    console.log(listaAsignaturas)
-
 }
 
-
-
-const submitAsignaturas=()=>{
-    const programaInput=document.getElementById("programa")
-    const cursoInput=document.getElementById("curso")
-    const codigoInput=document.getElementById("codigo")
-    const creditosInput=document.getElementById("creditos")
-    const profesorInput=document.getElementById("profesor")
-    const cuposInput=document.getElementById("cupos")
-
+const submitAsignaturas = () => {
+    const programaInput = document.getElementById("programa")
+    const cursoInput = document.getElementById("curso")
+    const codigoInput = document.getElementById("codigo")
+    const creditosInput = document.getElementById("creditos")
+    const profesorInput = document.getElementById("profesor")
+    const cuposInput = document.getElementById("cupos")
 
     let horaInicio = ""
     let horaFin = ""
@@ -41,45 +33,49 @@ const submitAsignaturas=()=>{
     horariosInputs.forEach(horarioInput => {
         const diaSemana = horarioInput.querySelector('.diaSemana').value;
         const salonHora = parseInt(horarioInput.querySelector('.salonHorarioAsignatura').value);
-        if(horarioInput.querySelector('.franja-horaria').value === "horario1"){
+        if (horarioInput.querySelector('.franja-horaria').value === "horario1") {
             horaInicio = "6:00 am"
             horaFin = "8:00 am"
-
-        }else if(horarioInput.querySelector('.franja-horaria').value === "horario2"){
+        } else if (horarioInput.querySelector('.franja-horaria').value === "horario2") {
             horaInicio = "8:00 am"
             horaFin = "10:00 am"
-
-        }else if(horarioInput.querySelector('.franja-horaria').value === "horario3"){
+        } else if (horarioInput.querySelector('.franja-horaria').value === "horario3") {
             horaInicio = "10:00 am"
             horaFin = "12:00 pm"
-
-        }else if(horarioInput.querySelector('.franja-horaria').value === "horario4"){
-             horaInicio = "12:00 pm"
-             horaFin = "2:00 pm"
-
+        } else if (horarioInput.querySelector('.franja-horaria').value === "horario4") {
+            horaInicio = "12:00 pm"
+            horaFin = "2:00 pm"
+        } else if (horarioInput.querySelector('.franja-horaria').value === "horario5") {
+            horaInicio = "2:00 pm"
+            horaFin = "4:00 pm"
+        } else if (horarioInput.querySelector('.franja-horaria').value === "horario6") {
+            horaInicio = "4:00 pm"
+            horaFin = "6:00 pm"
         }
-        else if(horarioInput.querySelector('.franja-horaria').value === "horario5"){
-             horaInicio = "2:00 pm"
-             horaFin = "4:00 pm"
-
-        }else if(horarioInput.querySelector('.franja-horaria').value === "horario6"){
-             horaInicio = "4:00 pm"
-             horaFin = "6:00 pm"
-
-        }
-        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id: salonHora });
     });
 
-    
-    const programa=parseInt(programaInput.value);
-    const curso=parseInt(cursoInput.value);
-    const codigo=codigoInput.value;
-    const creditos=parseInt(creditosInput.value);
-    const profesor= parseInt(profesorInput.value);
-    const cupos= parseInt(cuposInput.value);
+    const programa = parseInt(programaInput.value);
+    const curso = parseInt(cursoInput.value);
+    const codigo = codigoInput.value;
+    const creditos = parseInt(creditosInput.value);
+    const profesor = parseInt(profesorInput.value);
+    const cupos = parseInt(cuposInput.value);
 
-    const nuevoasignatura={
-        id:listaAsignaturas.length+1,
+    // Verificar si el profesor ya tiene una asignatura en el mismo horario
+    if (validarHorarioProfesor(profesor, horarios)) {
+        alert('El profesor ya tiene asignada otra materia en el mismo horario. Por favor, elija otro horario.');
+        return;
+    }
+
+    // Verificar si ya hay una asignatura con el mismo horario y salón
+    if (validarHorarioSalon(horarios)) {
+        alert('Ya existe una asignatura programada en el mismo horario y salón. Por favor, elija otro horario o salón.');
+        return;
+    }
+
+    const nuevaAsignatura = {
+        id: listaAsignaturas.length + 1,
         curso_id: curso,
         codigo: codigo,
         creditos: creditos,
@@ -87,15 +83,38 @@ const submitAsignaturas=()=>{
         cupos_disponibles: cupos,
         programa_id: programa,
         horario_clases: horarios
-
     }
 
-    guardarAsignatura(nuevoasignatura);
+    guardarAsignatura(nuevaAsignatura);
+    alert('Asignatura creada con éxito!');
+}
 
+const validarHorarioProfesor = (profesorId, horarios) => {
+    for (const asignatura of listaAsignaturas) {
+        if (asignatura.profesor_id === profesorId) {
+            for (const horario of asignatura.horario_clases) {
+                for (const nuevo of horarios) {
+                    if (horario.dia === nuevo.dia && horario.hora_inicio === nuevo.hora_inicio && horario.hora_fin === nuevo.hora_fin) {
+                        return true; // Si se encuentra una coincidencia, retorna verdadero
+                    }
+                }
+            }
+        }
+    }
+    return false; // Si no se encuentra ninguna coincidencia, retorna falso
+}
 
-
-    alert('asignatura creado con éxito!');
-
+const validarHorarioSalon = (nuevoHorario) => {
+    for (const asignatura of listaAsignaturas) {
+        for (const horario of asignatura.horario_clases) {
+            for (const nuevo of nuevoHorario) {
+                if (horario.dia === nuevo.dia && horario.hora_inicio === nuevo.hora_inicio && horario.hora_fin === nuevo.hora_fin && horario.salon_id === nuevo.salon_id) {
+                    return true; // Si se encuentra una coincidencia, retorna verdadero
+                }
+            }
+        }
+    }
+    return false; // Si no se encuentra ninguna coincidencia, retorna falso
 }
 
 
@@ -115,12 +134,12 @@ const agregarHorario = () => {
 
         <label for="franja-horaria">Horario:</label>
         <select class="franja-horaria" required>
-            <option value = "horario1"> 6:00 am - 8:00 am </option>
-            <option value = "horario2"> 8:00 am - 10:00 pm </option>
-            <option value = "horario3"> 10:00 am - 12:00 pm </option>
-            <option value = "horario4"> 12:00 pm - 2:00 pm </option>
-            <option value = "horario5"> 2:00 pm - 4:00 pm </option>
-            <option value = "horario6"> 4:00 pm - 6:00 pm </option>
+            <option value="horario1"> 6:00 am - 8:00 am </option>
+            <option value="horario2"> 8:00 am - 10:00 pm </option>
+            <option value="horario3"> 10:00 am - 12:00 pm </option>
+            <option value="horario4"> 12:00 pm - 2:00 pm </option>
+            <option value="horario5"> 2:00 pm - 4:00 pm </option>
+            <option value="horario6"> 4:00 pm - 6:00 pm </option>
         </select>
 
         <label for="salonHorarioAsignatura">Salón:</label>

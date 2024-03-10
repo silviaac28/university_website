@@ -11,27 +11,61 @@
     height: 10vh;
   }
 
-table{
-    margin-top: 10vh;
-    margin-left: 5vw;
-  }
-
-.navbar-inverse {
-    background-color: violet;
-    border-color: rgb(0, 247, 255);
-}
-.navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    background-color: violet;
+.navbar  {
+  position: relative;
+  min-height: 50px;
+  border: 1px solid transparent;
 }
 
+.navbar-navbar-inverse{
+  background-color: rgba(0, 0, 0, 0.886);
+}
+
+.navbar-navbar-inverse li a{
+  color: rgb(146, 143, 171);
+}
 
  #imagen-portada img{
-  height: 80vh;
+  width: 100vw;
+  height: 93vh;
  }
+
+/*DISENO TABLAS*/
+
+table{
+  margin-top: 10vh;
+  margin-left: 5vw;
+}
+
+.titulo-tabla {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-fondo {
+  /* Establece la imagen de fondo */
+  background-image: url('unif.png');
+  /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+  background-size: cover;
+  /* Centra la imagen de fondo en el contenedor */
+  background-position: center;
+  /* Establece la altura mínima del contenedor para que se adapte al contenido */
+  min-height: 100vh;
+  /* Establece el color del texto para que sea legible en la imagen de fondo */
+  color: white;
+  /* Añade un efecto de superposición oscuro para mejorar la legibilidad del texto */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el formulario */
+.mydetails {
+  /* Añade un margen superior para centrar el formulario verticalmente */
+  margin-top: 10%;
+}
+
+
+
 
 
  /*DISENO FORMULARIO ALUMNOS */

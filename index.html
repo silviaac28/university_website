@@ -11,32 +11,36 @@
 </head>
 <body>
     <!-- BARRA NAVVVVVV -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar-navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Sabios's University</a>
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a onclick="paginaPrincipal()">Home</a></li>
-            <li class="active"><a onclick="paginaPeriodos()">Periodos</a></li>
-            
-            <!-- LISTA DESPLEGABLE EN NAV
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Periodos<span class="caret"></span></a>
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Oferta acádemica<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Periodo 1</a></li>
-                <li><a href="#">Periodo 2</a></li>
+                <li><a onclick="paginaDepartamentos()">Departamentos</a></li>
+                <li><a onclick="paginaProgramas()">Programas</a></li>
+                <li><a onclick="paginaPeriodos()">Periodos</a></li>
+
+                <li><a onclick="paginaTarifas()">Tarifas</a></li>
+                <li><a onclick="paginaCursos()">Cursos</a></li>
+                <li><a onclick="paginaSalones()">Salones</a></li>
               </ul>
-            </li> --------->
-            <li><a onclick="paginaDepartamentos()">Departamentos</a></li>
-            <li><a onclick="paginaProgramas()">Programas</a></li>
-            <li><a onclick="paginaTarifas()">Tarifas</a></li>
-            <li><a onclick="paginaCursos()">Cursos</a></li>
-            <li><a onclick="paginaSalones()">Salones</a></li>
-            
+              </li> 
             <li><a onclick="formAlumnos()">Alumnos</a></li>
             <li><a onclick="formDocentes()">Docentes</a></li>
             <li><a onclick="formAsignaturas()">Asignaturas</a></li>
             <li><a onclick="formMatriculas()">Matriculas</a></li>
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a onclick="pagReportes()">Matriculas recaudadas</a></li>
+                <li><a onclick="formHorarios()">Horarios estudiantes</a></li>
+              </ul>
+            </li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -55,6 +59,7 @@
 
     <!-- TABLA PERIODOS -->
 <div id="pagPeriodos">
+  <div class="titulo-tabla"><h2>PERIODOS ACÁDEMICOS</h2></div>
   <table class="table table-striped">
     <thead>
         <tr>
@@ -72,6 +77,7 @@
 
     <!-- TABLA DEPARTAMENTOS  -->
 <div id="pagDepartamentos">
+  <div class="titulo-tabla"><h2>DEPARTAMENTOS</h2></div>
   <table class="table table-striped">
     <thead>
         <tr>
@@ -88,6 +94,7 @@
   <!-- TABLA PROGRAMAS  -->
 
 <div id="pagProgramas">
+  <div class="titulo-tabla"><h2>PROGRAMAS</h2></div>
   <table class="table table-striped">
     <thead>
         <tr>
@@ -104,6 +111,7 @@
 
     <!-- TABLA TARIFAS  -->
   <div id="pagTarifas">
+    <div class="titulo-tabla"><h2>TARIFAS</h2></div>
     <table class="table table-striped">
       <thead>
           <tr>
@@ -122,6 +130,7 @@
       <!-- TABLA CURSOS  -->
 
   <div id="pagCursos">
+    <div class="titulo-tabla"><h2>CURSOS</h2></div>
     <table class="table table-striped">
       <thead>
           <tr>
@@ -141,6 +150,7 @@
     <!-- TABLA SALONES  -->
 
     <div id="pagSalones">
+      <div class="titulo-tabla"><h2>SALONES</h2></div>
       <table class="table table-striped">
         <thead>
             <tr>
@@ -164,73 +174,76 @@
         </div>
       
 <!----------- FORMULARIO ALUMNOS  ------------>
-
 <div id="formAlumnos">
-  <div class="container4">
-    <p class="pf">INSCRIPCIÓN DE ALUMNOS</p>
-  </div>
+  <div class="imagen-fondo">
+    <div class="container4">
+      <p class="pf">INSCRIPCIÓN DE ALUMNOS</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <div class="card px-5 pt-4 d-flex justify-content-center">
+          <form class="mydetails">
+            <div class="form-group"><input type="text" class="form-control" id="nombreAlum" required><label class="form-control-placeholder" for="nombreAlum">Nombre</label></div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
-        <div class="card px-5 pt-4 d-flex justify-content-center">
-        <form class="mydetails">
-          <div class="form-group"><input type="text" class="form-control" id="nombreAlum" required><label class="form-control-placeholder" for="nombreAlum">Nombre</label></div>
-
-          <div class="form-group"><input type="text" class="form-control" id="apellidoAlum" required><label class="form-control-placeholder" for="apellidoAlum">Apellido</label></div>
-
-          <div class="mb-3">
-
-            <label for="tipoid" class="form-label">Tipo de Identificación</label>
-
-            <select id="tipoid" class="form-select">
-
-              <option>Cédula de Ciudadania</option>
-              <option>Cédula de Extranjeria</option>
-              <option>Número de Pasaporte</option>
-              <option>Tarjeta de Identidad</option>
-            </select>
-          </div>
-            
-          <div class="form-group"><input type="text" class="form-control" id="numdocumento" required><label class="form-control-placeholder" for="numdocumento">Número de Documento</label></div>
+            <div class="form-group"><input type="text" class="form-control" id="apellidoAlum" required><label class="form-control-placeholder" for="apellidoAlum">Apellido</label></div>
   
-          <div class="form-group"><input type="text" class="form-control" id="ciudad" required><label class="form-control-placeholder" for="ciudad">Ciudad de Residencia</label></div>
-
-          <div class="form-group"><input type="text" class="form-control" id="direccion" required><label class="form-control-placeholder" for="direccion">Dirección</label></div>
-
-          <div class="form-group"><input type="number" class="form-control" id="telefono" required><label class="form-control-placeholder" for="telefono">Teléfono</label></div>
-
-          <div class="form-group"><input type="date" class="form-control" id="fechaNacim" required><label class="form-control-placeholder" for="fechaNacim">Fecha de nacimiento</label></div>
-
-          <div class="mb-3">
-
-            <label for="genero" class="form-label">Género</label>
-
-            <select id="genero" class="form-select">
-
-              <option>Masculino</option>
-              <option>Femenino</option>
-            </select>
+            <div class="mb-3">
+  
+              <label for="tipoid" class="form-label">Tipo de Identificación</label>
+  
+              <select id="tipoid" class="form-select">
+  
+                <option>Cédula de Ciudadania</option>
+                <option>Cédula de Extranjeria</option>
+                <option>Número de Pasaporte</option>
+                <option>Tarjeta de Identidad</option>
+              </select>
+            </div>
+              
+            <div class="form-group"><input type="text" class="form-control" id="numdocumento" required><label class="form-control-placeholder" for="numdocumento">Número de Documento</label></div>
+    
+            <div class="form-group"><input type="text" class="form-control" id="ciudad" required><label class="form-control-placeholder" for="ciudad">Ciudad de Residencia</label></div>
+  
+            <div class="form-group"><input type="text" class="form-control" id="direccion" required><label class="form-control-placeholder" for="direccion">Dirección</label></div>
+  
+            <div class="form-group"><input type="number" class="form-control" id="telefono" required><label class="form-control-placeholder" for="telefono">Teléfono</label></div>
+  
+            <div class="form-group"><input type="date" class="form-control" id="fechaNacim" required><label class="form-control-placeholder" for="fechaNacim">Fecha de nacimiento</label></div>
+  
+            <div class="mb-3">
+  
+              <label for="genero" class="form-label">Género</label>
+  
+              <select id="genero" class="form-select">
+  
+                <option>Masculino</option>
+                <option>Femenino</option>
+              </select>
+            </div>
+  
+            <div class="mb-3">
+  
+              <label for="idprogram" class="form-label">ID del programa</label>
+  
+              <select id="idprogram" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAlumno()">Submit</button></div>
+            </div>
+            </div>
+          </form>
           </div>
-
-          <div class="mb-3">
-
-            <label for="idprogram" class="form-label">ID del programa</label>
-
-            <select id="idprogram" class="form-select">
-
-            </select>
-          </div>
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAlumno()">Submit</button></div>
-          </div>
-          </div>
-        </form>
         </div>
       </div>
     </div>
-  </div>
+  
 
+
+  </div>
+ 
 
 </div>
   
@@ -406,7 +419,7 @@
                         <th scope="col">Estudiante</th>
                         <th scope="col">Asignatura</th>
                         <th scope="col">Periodo</th>
-                        <th scope="col">credito</th>
+                        <th scope="col">Costo Crédito</th>
                       </tr>
                     </thead>
                     <tbody id="tablaMatriculas">
@@ -416,6 +429,7 @@
           </div>
 
           <p id="totalCreditos">Total de créditos:</p>
+          <p id="costoTotalCreditos">Costo total de créditos:</p>
 
 
           <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Agregar matricula</button></div>
@@ -435,8 +449,84 @@
 
 </div>
 
+<!----------- REPORTES  -------------->
+
+<div id="pagReportes">
+  <div class="container5">
+    <div class="titulo-tabla"><h2>RECAUDACION MATRICULAS</h2></div>
+  </div>
+
+  <div id="recaudos-container">
+    <table class="table table-striped">
+      <thead>
+          <tr>
+                <th scope="col">PERIODO</th>
+                <th scope="col">Total recaudado en matriculas</th>
+                <th scope="col">Asignatura más matriculada</th>
+              </tr>
+            </thead>
+            <tbody id="tablaRecaudos">
+      
+            </tbody>
+        </table>
+  </div>
+
+</div>
+
+<!----------- HORARIO ESTUDIANTES  -------------->
 
 
+<div id="formHorarios">
+  <div class="container6">
+    <div class="titulo-tabla"><h2>HORARIOS ESTUDIANTES</h2></div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+        <div class="card px-5 pt-4 d-flex justify-content-center">
+        <form class="mydetails">
+
+          <div class="mb-3">
+
+            <label for="estudiante" class="form-label">Estudiante</label>
+
+            <select id="estudiante" class="form-select">
+
+            </select>
+          </div>
+
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Ver horario</button></div>
+
+          <div id="horarios-container">
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miercoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tablaHorarios">
+              
+                    </tbody>
+                </table>
+          </div>
+
+
+        
+          </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
 
   <script src="js/estudiantes.js"></script>
   <script src="js/docentes.js"></script>
@@ -449,6 +539,9 @@
   <script src="js/tarifas.js"></script>
   <script src="js/programas.js"></script>
   <script src="js/paginamain.js"></script>
+  <script src="js/reportes.js"></script>
+  <script src="js/horarioestudiantes.js"></script>
+
   <script src="js/app.js"></script>
 
 </body>

@@ -36,15 +36,29 @@ const cargarEstudiantes=()=>{
     estudianteInput.innerHTML=datos;
 }
 
-const cargarAsignaturas=()=>{
-    const asignaturaInput=document.getElementById("asignatura");
+const cargarAsignaturas = () => {
+    const asignaturaInput = document.getElementById("asignatura");
     let datos = '';
-    for ( const asignat of listaAsignaturas){
-        datos+=`<option value="${asignat.id}">${asignat.codigo}</option>` 
-    }
-    console.log(datos)
+    
+    // Creamos un conjunto (Set) para almacenar las asignaturas únicas
+    const asignaturasUnicas = new Set();
 
-    asignaturaInput.innerHTML=datos;
+    // Iteramos sobre la lista de asignaturas y agregamos cada código de asignatura al conjunto
+    for (const asignatura of listaAsignaturas) {
+        asignaturasUnicas.add(asignatura.codigo);
+    }
+
+    // Convertimos el conjunto de asignaturas únicas de nuevo a un array
+    const asignaturasArray = Array.from(asignaturasUnicas);
+
+    // Ahora iteramos sobre el array de asignaturas únicas para crear las opciones del select
+    for (const codigoAsignatura of asignaturasArray) {
+        datos += `<option value="${codigoAsignatura}">${codigoAsignatura}</option>`;
+    }
+
+    console.log(datos);
+
+    asignaturaInput.innerHTML = datos;
 }
 
 const cargarPeriodos=()=>{
@@ -156,6 +170,19 @@ const precioInput=document.getElementById("precio")
 const estudiante=parseInt(estudianteInput.value);
 const asignatura=parseInt(asignaturaInput.value);
 
+// Verificar si el estudiante ya ha matriculado esta asignatura en el JSON
+const estudianteYaMatriculado = listaMatriculas.some(matricula => matricula.estudiante_id === estudiante && matricula.asignatura_id.includes(asignatura));
+if (estudianteYaMatriculado) {
+    alert("Este estudiante ya ha matriculado esta asignatura.");
+    return; // Detener la ejecución si el estudiante ya está matriculado en la asignatura
+}
+
+// Verificar si el estudiante ya ha matriculado esta asignatura- ESTO ES LO UNICO QUE CAMBIOOOO
+if (asignaturasAnadidas.includes(asignatura)) {
+    alert("Este estudiante ya ha matriculado esta asignatura.");
+    return; // Detener la ejecución si la asignatura ya fue matriculada
+}
+
 asignaturasAnadidas[item]=asignatura;
 item =item+1;
 console.log(asignaturasAnadidas)
@@ -177,7 +204,7 @@ console.log(asignaturasAnadidas)
     });
 
     console.log(encontrados)
-        precio1 = encontrados[0].costo_credito; // Suponiendo que la tarifa tiene un atributo 'costo_credito'
+        precio1 = encontrados[0].costo_credito;
     
     console.log(precio1)
     nuevaMatricula.innerHTML = `
