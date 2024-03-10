@@ -173,7 +173,7 @@ console.log(asignaturasAnadidas)
         console.log(periodo)
         console.log(elemento.programa_id)
         console.log(asignatura)
-        return elemento.periodo_id == periodo && elemento.programa_id == asignatura;
+        return elemento.periodo_id == periodo && elemento.programa_id == listaAsignaturas[asignatura-1].programa_id;
     });
 
     console.log(encontrados)
@@ -195,7 +195,5 @@ console.log(asignaturasAnadidas)
     
 
 }; 
-
-
 
 
