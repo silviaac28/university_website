@@ -1,18 +1,6 @@
-let listaMatriculas = []; // Variable global para almacenar las matrículas
+const repeticionesAsignaturas = {};
 
-const loadMatriculas = async () => {
-    try {
-        const respuesta = await fetch('http://localhost:3000/matriculas');
 
-        if (!respuesta.ok) {
-            throw new Error('Error al cargar matricula. Estado: ' + respuesta.status);
-        }
-        const matriculas = await respuesta.json();
-        listaMatriculas = matriculas; // Asignar los datos cargados a la variable global
-    } catch (error) {
-        console.error("Error al cargar matriculas", error.message);
-    }
-};
 
 
 
@@ -23,6 +11,8 @@ const cargarReportesTabla=()=>{
 
     var totalPeriodo1 = 0;
     var totalPeriodo2 = 0;
+    var MasMatriculada1 = 0;
+    var MasMatriculada2 = 0;
 
     for ( const matricula of listaMatriculas){
         if(matricula.periodo_id == 1){
@@ -34,21 +24,53 @@ const cargarReportesTabla=()=>{
     
     }
 
+
+
+// Iteramos sobre cada matrícula
+listaMatriculas.forEach(matricula => {
+    // Verificamos si asignatura_id es un array
+    if (Array.isArray(matricula.asignatura_id)) {
+        matricula.asignatura_id.forEach(asignaturaId => {
+            // Incrementamos el contador de la asignatura
+            repeticionesAsignaturas[asignaturaId] = (repeticionesAsignaturas[asignaturaId] || 0) + 1;
+        });
+    } else {
+        // Incrementamos el contador de la asignatura
+        repeticionesAsignaturas[matricula.asignatura_id] = (repeticionesAsignaturas[matricula.asignatura_id] || 0) + 1;
+    }
+});
+
+// Mostramos el objeto con la cantidad de veces que aparece cada asignatura
+console.log(repeticionesAsignaturas);
+let asignaturaMasRepetida = null;
+let maxRepeticiones = 0;
+
+for (let asignaturaId in repeticionesAsignaturas) {
+    
+    if (repeticionesAsignaturas[asignaturaId] > maxRepeticiones) {
+        asignaturaMasRepetida = asignaturaId;
+        maxRepeticiones = repeticionesAsignaturas[asignaturaId];
+    }
+    
+}
     console.log(totalPeriodo1)
     console.log(totalPeriodo2)
 
         datos+=`<tr>
 
-            <td>${matricula.periodo_id}</td>
+            <td>${1}</td>
             <td>${totalPeriodo1}</td>
+            <td>${asignaturaMasRepetida}</td>
+            
 
 
             </tr>`
 
         datos+=`<tr>
 
-        <td>${matricula.periodo_id}</td>
+        <td>${2}</td>
         <td>${totalPeriodo2}</td>
+        <td>${asignaturaMasRepetida}</td>
 
         </tr>`
     //}

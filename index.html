@@ -37,7 +37,7 @@
 
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a onclick="pagReportes()">Matriculas recaudadas</a></li>
+                <li><a onclick="paginaReportes()">Matriculas recaudadas</a></li>
                 <li><a onclick="formHorarios()">Horarios estudiantes</a></li>
               </ul>
             </li> 
@@ -370,7 +370,7 @@
             </div>
   
   
-            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarHorario()">Agregar horarios de clase</button></div>
+            <!-- <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarHorario()">Agregar horarios de clase</button></div> -->
   
   
             <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAsignaturas()">Submit</button></div>
@@ -496,58 +496,51 @@
 
 <!----------- HORARIO ESTUDIANTES  -------------->
 
-
 <div id="formHorarios">
-  <div class="container6">
-    <div class="titulo-tabla"><h2>HORARIOS ESTUDIANTES</h2></div>
-  </div>
+  <div class="imagen-fondo">
+    <div class="container6">
+      <div class="titulo-tabla"><h2>HORARIOS ESTUDIANTES</h2></div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <div class="card px-5 pt-4 d-flex justify-content-center">
+          <form class="mydetails">
   
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
-        <div class="card px-5 pt-4 d-flex justify-content-center">
-        <form class="mydetails">
-
-          <div class="mb-3">
-
-            <label for="estudiante" class="form-label">Estudiante</label>
-
-            <select id="estudiante" class="form-select">
-
-            </select>
+            <div class="mb-3">
+  
+              <label for="estudianteH" class="form-label">Estudiante</label>
+  
+              <select id="estudianteH" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="col-md-12"><button type="button" class="btn btn-primary btn-block" onclick="cargarMtriculasReporte()">Ver horario</button></div>
+  <div class="row">
+            <div id="horariosR">
+  
+  
+            </div>
+           
+  
+  
           </div>
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="cargarHorarios()">Ver horario</button></div>
-
-          <div id="horarios-container">
-            <table class="table table-striped">
-              <thead>
-                  <tr>
-                        <th scope="col">Lunes</th>
-                        <th scope="col">Martes</th>
-                        <th scope="col">Miercoles</th>
-                        <th scope="col">Jueves</th>
-                        <th scope="col">Viernes</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tablaHorarios">
-              
-                    </tbody>
-                </table>
+          
+            </div>
+            </div>
+          </form>
           </div>
-
-
-        
-          </div>
-          </div>
-        </form>
         </div>
       </div>
     </div>
+  
+  
   </div>
 
-
 </div>
+
 
   <script src="js/estudiantes.js"></script>
   <script src="js/docentes.js"></script>

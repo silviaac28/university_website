@@ -1,25 +1,6 @@
-const loadEstudiantes = async () => {
-    try {
-        const respuesta = await fetch('http://localhost:3000/estudiantes');
-        if (!respuesta.ok) {
-            throw new Error('Error al cargar estudiantes. Estado: ', respuesta.status);
-        }
-        const estudiantes = await respuesta.json();
-        const estudianteInput = document.getElementById("estudiante");
-        estudiantes.forEach(estudiante => {
-            const option = document.createElement('option');
-            option.value = estudiante.id;
-            option.textContent = `${estudiante.nombre} ${estudiante.apellido}`;
-            estudianteInput.appendChild(option);
-        });
-    } catch (error) {
-        console.error("Error al cargar estudiantes", error.message);
-    }
-};
-
-
-const cargarEstudiantes=()=>{
-    const estudianteInput=document.getElementById("estudiante");
+let matriculasEstudiante=[];
+const cargarEstudiantesR=()=>{
+    const estudianteInput=document.getElementById("estudianteH");
     let datos = '';
     for ( const alumno of listaAlumnos){
         datos+=`<option value="${alumno.id}">${alumno.nombre} ${alumno.apellido}</option>` 
@@ -27,58 +8,48 @@ const cargarEstudiantes=()=>{
     console.log(datos)
 
     estudianteInput.innerHTML=datos;
+} 
+const cargarMtriculasReporte=()=>{
+    console.log("hola")
+    let opciones="";
+    const horariosRInput=document.getElementById("horariosR");
+
+    const estudianteInput=document.getElementById("estudianteH");
+for (const matriculas of listaMatriculas) {
+
+
+    if (matriculas.estudiante_id == estudianteInput.value){
+    
+       
+        matriculasEstudiante=matriculas.asignatura_id
+    
+
 }
+console.log(matriculasEstudiante.length)
+}
+let i=0;
+for (const matEst of matriculasEstudiante) {
+
+for (const asignaturass of listaAsignaturas) {
+
+    if (asignaturass.id == matriculasEstudiante[i]){
+    opciones+=`
+    <div>
+    <h2>${asignaturass.horario_clases[0].dia}</h2>
+    <h2>${asignaturass.horario_clases[0].hora_inicio} - ${asignaturass.horario_clases[0].hora_fin} </h2>
+    <h2>${asignaturass.horario_clases[1].dia}</h2>
+    <h2>${asignaturass.horario_clases[1].hora_inicio} - ${asignaturass.horario_clases[1].hora_fin}</h2>
+    </div>
+    `
 
 
-
-
-const cargarHorarios = async () => {
-    const estudianteInput = document.getElementById("estudiante");
-    const estudianteId = parseInt(estudianteInput.value);
-
-    try {
-        const respuesta = await fetch(`http://localhost:3000/matriculas?estudiante_id=${estudianteId}`);
-        if (!respuesta.ok) {
-            throw new Error('Error al cargar horarios del estudiante. Estado: ', respuesta.status);
-        }
-        const matriculas = await respuesta.json();
-        const tablaHorarios = document.getElementById("tablaHorarios");
-        tablaHorarios.innerHTML = ''; // Limpiar tabla
-
-        const horarios = {
-            lunes: [],
-            martes: [],
-            miercoles: [],
-            jueves: [],
-            viernes: []
-        };
-
-        matriculas.forEach(matricula => {
-            matricula.asignatura.horario_clases.forEach(horario => {
-                horarios[horario.dia.toLowerCase()].push(`${horario.hora_inicio} - ${horario.hora_fin}`);
-            });
-        });
-
-        const tbody = document.createElement('tbody');
-        for (let i = 0; i < 5; i++) {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td>${horarios.lunes[i] || '-'}</td>
-                <td>${horarios.martes[i] || '-'}</td>
-                <td>${horarios.miercoles[i] || '-'}</td>
-                <td>${horarios.jueves[i] || '-'}</td>
-                <td>${horarios.viernes[i] || '-'}</td>
-            `;
-            tbody.appendChild(fila);
-        }
-        tablaHorarios.appendChild(tbody);
-    } catch (error) {
-        console.error("Error al cargar horarios del estudiante", error.message);
+            console.log("se solo" + asignaturass.horario_clases[0].dia)
+        console.log("se solo" + asignaturass.horario_clases[0].hora_inicio)
+        
+        console.log("se solo" + asignaturass.horario_clases[1].dia)
+        console.log("se solo" + asignaturass.horario_clases[1].hora_inicio)
     }
-};
-
-document.getElementById("estudiante").addEventListener("change", cargarHorarios);
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadEstudiantes();
-});
+ }
+ i++
+}horariosRInput.innerHTML=opciones
+}

@@ -164,14 +164,27 @@ const precioInput=document.getElementById("precio")
 
 const estudiante=parseInt(estudianteInput.value);
 const asignatura=asignaturaInput.value;
+let i=0;
+for (const matricula of listaMatriculas) {
+if(matricula.estudiante_id==estudianteInput.value){
+    alert("Este estudiante ya ha sido matriculado.")
+    return
+}
 
-
+}
+for (const asignaturas of asignaturasAnadidas) {
+    if(asignaturas==asignatura){
+        alert("Esta materia ya está matriculada para este estudiante")
+        return
+    }
+    
+    }
 
 asignaturasAnadidas[item]=asignatura;
 item =item+1;
 console.log(asignaturasAnadidas)
 
-
+estudianteInput.setAttribute("disabled","");
     const periodo=periodoInput.value;
     const matriculaContainer = document.getElementById('tablaMatriculas');
     const nuevaMatricula = document.createElement('tr');
@@ -206,7 +219,7 @@ console.log(asignaturasAnadidas)
     matriculaContainer.appendChild(nuevaMatricula);
 
    
-    document.getElementById('totalCreditos').textContent = `Total de créditos: ${totalCreditos}`;
+    document.getElementById('totalCreditos').textContent = `Costo total de créditos: ${totalCreditos}`;
     
 
 }; 

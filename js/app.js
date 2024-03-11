@@ -10,6 +10,5 @@ document.addEventListener('DOMContentLoaded',()=>{
     loadPeriodos();
     loadTarifas();
     paginaPrincipal();
-    //pagReportes();
 
 })

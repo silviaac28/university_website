@@ -203,6 +203,8 @@ const formAsignaturas=()=>{
     cargarProgramas()
     cargarCursos()
     cargarProfesores()
+    agregarHorario()
+    agregarHorario()
 }
 
 
@@ -227,7 +229,7 @@ const formMatriculas=()=>{
     cargarPeriodos()
 }
 
-const pagReportes=()=>{
+const paginaReportes=()=>{
     homeInput.style.display="none";
     pagDepartamentosInput.style.display="none";
     pagPeriodosInput.style.display="none";
@@ -263,7 +265,8 @@ const formHorarios=()=>{
     pagReportesInput.style.display="none";
     formHorariosInput.style.display="block";
 
-    cargarHorarios()
+    cargarEstudiantesR()
+    
 }
 
 

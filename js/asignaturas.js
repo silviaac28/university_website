@@ -202,7 +202,7 @@ const cargarCursos=()=>{
      
     }
     console.log(datos)
-
+   
     cursoInput.innerHTML=datos;
 }
 
@@ -210,7 +210,7 @@ const cargarProfesores=()=>{
     const profesorInput=document.getElementById("profesor");
     let datos = '';
     for ( const profesor of listaDocentes){
-        datos+=`<option value="${profesor.id}">${profesor.nombre}</option>`
+        datos+=`<option value="${profesor.id}">${profesor.nombre} ${profesor.apellido}</option>`
      
     }
 

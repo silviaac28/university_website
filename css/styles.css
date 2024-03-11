@@ -38,7 +38,7 @@
 }
 
 #about-us{
-  background-color: rgba(19, 29, 39, 0.497);
+  background-color: rgba(16, 25, 33, 0.751);
   /* background-color: rgba(0, 0, 0, 0.7); Fondo negro con transparencia */
   border-radius: 10px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
@@ -68,7 +68,7 @@
 }
 
 .container4 h4{
-  color: aliceblue;
+  color: rgba(240, 248, 255, 0.637);
 }
 
 
@@ -133,6 +133,25 @@ table{
 
 #formMatriculas button{
   margin-top: 5vh;
+}
+
+
+/*DISENO FORMULARIO MATRICULAS */
+#formHorarios{
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  background-image: url('unif.png');
+  color: black;
+}
+
+#formHorarios button{
+  margin-top: 5vh;
+}
+
+#horariosR h2{
+  font-size: 2vh;
 }
 
 
