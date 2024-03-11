@@ -1,3 +1,5 @@
+/* NAV BARRRRRRR*/
+
 .carousel-item {
     height: 65vh;
     min-height: 350px;
@@ -25,67 +27,69 @@
   color: rgb(146, 143, 171);
 }
 
+
+/* HOME */
  #imagen-portada img{
   width: 100vw;
   height: 93vh;
  }
 
-/*DISENO TABLAS*/
-
-table{
-  margin-top: 10vh;
-  margin-left: 5vw;
-}
-
-.titulo-tabla {
-  margin-top: 5vh;
-  display: flex;
-  justify-content: center;
-}
-
-.imagen-fondo {
-  /* Establece la imagen de fondo */
-  background-image: url('unif.png');
-  /* Ajusta la imagen de fondo para que cubra todo el contenedor */
-  background-size: cover;
-  /* Centra la imagen de fondo en el contenedor */
-  background-position: center;
-  /* Establece la altura mínima del contenedor para que se adapte al contenido */
-  min-height: 100vh;
-  /* Establece el color del texto para que sea legible en la imagen de fondo */
-  color: white;
-  /* Añade un efecto de superposición oscuro para mejorar la legibilidad del texto */
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Estilos para el formulario */
-.mydetails {
-  /* Añade un margen superior para centrar el formulario verticalmente */
-  margin-top: 10%;
-}
-
-
-
-
+/* FORMULARIOS */
 
  /*DISENO FORMULARIO ALUMNOS */
 
  #formAlumnos{
-    display: flex;
-    margin-left: 30vw;
-    flex-direction: column;
-    margin-top: 5vh;
- }
-
- .pf{
-  font-size: 3vh;
- }
-
- /*DISENO FORMULARIO ALUMNOS */
-
- #formDocentes{
   display: flex;
-  margin-left: 30vw;
   flex-direction: column;
+  display: flex;
+  background-image: url('unif.png');
+  color: black;
+}
+
+/*DISENO FORMULARIO ALUMNOS */
+
+#formDocentes{
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  background-image: url('unif.png');
+  color: black;
+  height: 100vh;
+}
+
+#formDocentes button{
   margin-top: 5vh;
 }
+
+.imagen-fondo {
+  background-color: aliceblue;
+  /* background-color: rgba(0, 0, 0, 0.7); Fondo negro con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  max-width: 45vw;
+  margin-left: 30vw;
+  margin-top: 0vh;
+  height: 100vh;
+}
+
+.imagen-fondo .container4 {
+  background-color: transparent; 
+  color: black;/* Fondo transparente para que se muestre el color de fondo del div padre */
+}
+
+.imagen-fondo .pf {
+  color: white; /* Texto blanco para que sea visible sobre el fondo oscuro */
+}
+
+
+
+
+
+
+/*PRUEBASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS*/
+
+
+

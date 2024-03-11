@@ -1,94 +1,45 @@
-const loadMatriculas = async () => {
-    try {
-        listaMatriculas.length = 0;
-        const respuesta = await fetch('http://localhost:3000/matriculas');
-
-        if (!respuesta.ok) {
-            throw new Error('Error al cargar matricula. Estado: ', respuesta.status);
-        }
-        const Matriculas = await respuesta.json();
-        listaMatriculas.push(...Matriculas);
-    } catch (error) {
-        console.error("Error al cargar matriculas", error.message);
+const cargarInformes=()=>{
+    let valorTotalMatriculas=0;
+    console.log(listaMatriculas)
+    informesInput.innerHTML="hola" 
+    for(const matriculas of listaMatriculas){
+        valorTotalMatriculas+= matriculas.precio
     }
+    console.log(valorTotalMatriculas)
+   
+    
+const repeticionesAsignaturas = {};
+
+// Iteramos sobre cada matrícula
+listaMatriculas.forEach(matricula => {
+    // Verificamos si asignatura_id es un array
+    if (Array.isArray(matricula.asignatura_id)) {
+        matricula.asignatura_id.forEach(asignaturaId => {
+            // Incrementamos el contador de la asignatura
+            repeticionesAsignaturas[asignaturaId] = (repeticionesAsignaturas[asignaturaId] || 0) + 1;
+        });
+    } else {
+        // Incrementamos el contador de la asignatura
+        repeticionesAsignaturas[matricula.asignatura_id] = (repeticionesAsignaturas[matricula.asignatura_id] || 0) + 1;
+    }
+});
+
 }
+// Mostramos el objeto con la cantidad de veces que aparece cada asignatura
+console.log(repeticionesAsignaturas);
+let asignaturaMasRepetida = null;
+let maxRepeticiones = 0;
 
-const loadAsignaturas = async () => {
-    try {
-        listaAsignaturas.length = 0;
-        const respuesta = await fetch('http://localhost:3000/asignaturas');
-
-        if (!respuesta.ok) {
-            throw new Error('Error al cargar asignatura. Estado: ', respuesta.status);
-        }
-        const Asignaturas = await respuesta.json();
-        listaAsignaturas.push(...Asignaturas);
-    } catch (error) {
-        console.error("Error al cargar asignaturas", error.message);
+for (let asignaturaId in repeticionesAsignaturas) {
+    if (repeticionesAsignaturas[asignaturaId] > maxRepeticiones) {
+        asignaturaMasRepetida = asignaturaId;
+        maxRepeticiones = repeticionesAsignaturas[asignaturaId];
     }
+    
 }
-
-const cargarReportes = () => {
-    const tablaRecaudos = document.getElementById("tablaRecaudos");
-
-    // Calcular el costo total recaudado por créditos en el periodo 1 y periodo 2
-    const recaudacionPeriodo1 = calcularRecaudacionPorPeriodo(1);
-    const recaudacionPeriodo2 = calcularRecaudacionPorPeriodo(2);
-
-    // Encontrar la asignatura más matriculada del periodo 1 y periodo 2
-    const asignaturaMasMatriculadaPeriodo1 = encontrarAsignaturaMasMatriculada(1);
-    const asignaturaMasMatriculadaPeriodo2 = encontrarAsignaturaMasMatriculada(2);
-
-    // Llenar la tabla con los datos obtenidos
-    const filaPeriodo1 = document.createElement("tr");
-    filaPeriodo1.innerHTML = `
-        <td>Periodo 1</td>
-        <td>${recaudacionPeriodo1}</td>
-        <td>${asignaturaMasMatriculadaPeriodo1}</td>
-    `;
-    tablaRecaudos.appendChild(filaPeriodo1);
-
-    const filaPeriodo2 = document.createElement("tr");
-    filaPeriodo2.innerHTML = `
-        <td>Periodo 2</td>
-        <td>${recaudacionPeriodo2}</td>
-        <td>${asignaturaMasMatriculadaPeriodo2}</td>
-    `;
-    tablaRecaudos.appendChild(filaPeriodo2);
-};
-
-const calcularRecaudacionPorPeriodo = (periodoId) => {
-    let totalRecaudado = 0;
-    for (const matricula of listaMatriculas) {
-        if (matricula.periodo_id === periodoId) {
-            const asignatura = listaAsignaturas.find(asignatura => asignatura.id === matricula.asignatura_id);
-            totalRecaudado += asignatura.creditos * matricula.precio;
-        }
-    }
-    return totalRecaudado;
-};
-
-const encontrarAsignaturaMasMatriculada = (periodoId) => {
-    const matriculasPeriodo = listaMatriculas.filter(matricula => matricula.periodo_id === periodoId);
-    const conteoAsignaturas = {};
-
-    for (const matricula of matriculasPeriodo) {
-        const asignaturaId = matricula.asignatura_id;
-        conteoAsignaturas[asignaturaId] = (conteoAsignaturas[asignaturaId] || 0) + 1;
-    }
-
-    let maxMatriculas = 0;
-    let asignaturaMasMatriculada = "";
-
-    for (const asignaturaId in conteoAsignaturas) {
-        if (conteoAsignaturas[asignaturaId] > maxMatriculas) {
-            maxMatriculas = conteoAsignaturas[asignaturaId];
-            asignaturaMasMatriculada = listaAsignaturas.find(asignatura => asignatura.id === parseInt(asignaturaId)).codigo;
-        }
-    }
-
-    return asignaturaMasMatriculada;
-};
-
-// Llamar a la función para cargar los reportes cuando se cargue la página
-window.onload = cargarReportes;
+console.log(listaAsignaturas[asignaturaMasRepetida-1].codigo);
+informesInput.innerHTML=`
+<h1> total recaudado</h1>
+<h1>${valorTotalMatriculas}</h1>
+<h1>  asignatura más matriculada</h1>
+<h1>${listaAsignaturas[asignaturaMasRepetida-1].codigo}</h1>`

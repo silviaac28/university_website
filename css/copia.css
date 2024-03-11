@@ -1,0 +1,33 @@
+
+/*DISENO TABLAS*/
+
+table{
+    margin-top: 10vh;
+    margin-left: 5vw;
+  }
+  
+  .titulo-tabla {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .imagen-fondo {
+    /* Establece la imagen de fondo */
+    background-image: url('unif.png');
+    /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+    background-size: cover;
+    /* Centra la imagen de fondo en el contenedor */
+    background-position: center;
+    /* Establece la altura mínima del contenedor para que se adapte al contenido */
+    min-height: 100vh;
+    /* Establece el color del texto para que sea legible en la imagen de fondo */
+    color: white;
+    /* Añade un efecto de superposición oscuro para mejorar la legibilidad del texto */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2%;
+  }
+
+
+
+

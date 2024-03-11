@@ -554,21 +554,30 @@
     {
       "id": 3,
       "estudiante_id": 2,
-      "asignatura_id": [1, 2, 3, 4],
+      "asignatura_id": [
+        1,
+        2,
+        3,
+        4
+      ],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 4,
       "estudiante_id": 4,
-      "asignatura_id": [1],
+      "asignatura_id": [
+        1
+      ],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 5,
       "estudiante_id": 4,
-      "asignatura_id": [3],
+      "asignatura_id": [
+        3
+      ],
       "periodo_id": 1,
       "precio": 1000
     },
@@ -589,9 +598,20 @@
     {
       "id": 8,
       "estudiante_id": 4,
-      "asignatura_id": [2],
+      "asignatura_id": [
+        2
+      ],
       "periodo_id": 1,
       "precio": 1100
+    },
+    {
+      "id": 9,
+      "estudiante_id": 2,
+      "asignatura_id": [
+        null
+      ],
+      "periodo_id": 1,
+      "precio": 0
     }
   ]
 }

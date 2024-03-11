@@ -177,7 +177,7 @@
 <div id="formAlumnos">
   <div class="imagen-fondo">
     <div class="container4">
-      <p class="pf">INSCRIPCIÓN DE ALUMNOS</p>
+      <h2>INSCRIPCIÓN DE ALUMNOS</h2>
     </div>
     <div class="container">
       <div class="row">
@@ -249,60 +249,63 @@
   
 
 <!----------- FORMULARIO DOCENTES  ------------>
-
 <div id="formDocentes">
-  <div class="container4">
-    <p class="pf">INSCRIPCIÓN DE DOCENTES</p>
-  </div>
+  <div class="imagen-fondo">
+    <div class="container4">
+      <h2>INSCRIPCIÓN DE DOCENTES</h2>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <div class="card px-5 pt-4 d-flex justify-content-center">
+          <form class="mydetails">
+            <div class="form-group"><input type="text" class="form-control" id="nombreDocente" required><label class="form-control-placeholder" for="nombreDocente">Nombre</label></div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
-        <div class="card px-5 pt-4 d-flex justify-content-center">
-        <form class="mydetails">
-          <div class="form-group"><input type="text" class="form-control" id="nombreDocente" required><label class="form-control-placeholder" for="nombreDocente">Nombre</label></div>
-
-          <div class="form-group"><input type="text" class="form-control" id="apellidoDocente" required><label class="form-control-placeholder" for="apellidoDocente">Apellido</label></div>
-
-          <div class="mb-3">
-
-            <label for="tipoid_doc" class="form-label">Tipo de Identificación</label>
-
-            <select id="tipoid_doc" class="form-select">
-
-              <option>Cédula de Ciudadania</option>
-              <option>Cédula de Extranjeria</option>
-              <option>Número de Pasaporte</option>
-              <option>Tarjeta de Identidad</option>
-            </select>
+            <div class="form-group"><input type="text" class="form-control" id="apellidoDocente" required><label class="form-control-placeholder" for="apellidoDocente">Apellido</label></div>
+  
+            <div class="mb-3">
+  
+              <label for="tipoid_doc" class="form-label">Tipo de Identificación</label>
+  
+              <select id="tipoid_doc" class="form-select">
+  
+                <option>Cédula de Ciudadania</option>
+                <option>Cédula de Extranjeria</option>
+                <option>Número de Pasaporte</option>
+                <option>Tarjeta de Identidad</option>
+              </select>
+            </div>
+              
+            <div class="form-group"><input type="text" class="form-control" id="doc_docente" required><label class="form-control-placeholder" for="doc_docente">Número de Documento</label></div>
+  
+            <div class="mb-3">
+  
+              <label for="dep_id" class="form-label">ID del programa</label>
+  
+              <select id="dep_id" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitDocente()">Submit</button></div>
+            </div>
+            </div>
+          </form>
           </div>
-            
-          <div class="form-group"><input type="text" class="form-control" id="doc_docente" required><label class="form-control-placeholder" for="doc_docente">Número de Documento</label></div>
-
-          <div class="mb-3">
-
-            <label for="dep_id" class="form-label">ID del programa</label>
-
-            <select id="dep_id" class="form-select">
-
-            </select>
-          </div>
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitDocente()">Submit</button></div>
-          </div>
-          </div>
-        </form>
         </div>
       </div>
     </div>
+  
+  
   </div>
-
+  
 
 </div>
 
 <!----------- FORMULARIO ASIGNATURAS  ------------>
 
-<div id="formAsignaturas">
+<div id="formAsignaturas" class="background-imagen">
   <div class="container4">
     <p class="pf">INSCRIPCIÓN ASIGNATURAS</p>
   </div>
@@ -496,7 +499,7 @@
             </select>
           </div>
 
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Ver horario</button></div>
+          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="cargarHorarios()">Ver horario</button></div>
 
           <div id="horarios-container">
             <table class="table table-striped">

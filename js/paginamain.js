@@ -242,6 +242,10 @@ const pagReportes=()=>{
     formMatriculasInput.style.display="none";
     pagReportesInput.style.display="block";
     formHorariosInput.style.display="none";
+
+    cargarReportes()
+    fillTable()
+
 }
 
 const formHorarios=()=>{
@@ -259,6 +263,8 @@ const formHorarios=()=>{
     formMatriculasInput.style.display="none";
     pagReportesInput.style.display="none";
     formHorariosInput.style.display="block";
+
+    cargarHorarios()
 }
 
 

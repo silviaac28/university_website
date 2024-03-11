@@ -162,13 +162,13 @@ const submitMatriculas = () => {
 
 const agregarMatricula = () => {
 
-const estudianteInput=document.getElementById("estudiante")
-const asignaturaInput=document.getElementById("asignatura")
-const periodoInput=document.getElementById("periodo")
-const precioInput=document.getElementById("precio")
-
-const estudiante=parseInt(estudianteInput.value);
-const asignatura=parseInt(asignaturaInput.value);
+    const estudianteInput=document.getElementById("estudiante")
+    const asignaturaInput=document.getElementById("asignatura")
+    const periodoInput=document.getElementById("periodo")
+    const precioInput=document.getElementById("precio")
+        
+    const estudiante=parseInt(estudianteInput.value);
+    const asignatura=asignaturaInput.value;
 
 // Verificar si el estudiante ya ha matriculado esta asignatura en el JSON
 const estudianteYaMatriculado = listaMatriculas.some(matricula => matricula.estudiante_id === estudiante && matricula.asignatura_id.includes(asignatura));
