@@ -51,9 +51,22 @@
 
 
       <div id="home">
-        <div id="imagen-portada">
-            <img src="unif.png" alt="">
-        </div>
+            <div id="about-us">
+              <div class="container4">
+                <div class="circulos">
+                  <h4>Nuestras Sedes</h4>
+                  <img src="css/op.jpg" alt="">
+                </div>
+                <div class="circulos">
+                  <h4>Investigación</h4>
+                  <img src="css/invest.jpg" alt="">
+                </div>
+                <div class="circulos">
+                  <h4>Proyección Social</h4>
+                  <img src="css/com.jpg" alt="">
+                </div>
+              </div>
+            </div>
       </div>
 
 
@@ -304,153 +317,158 @@
 </div>
 
 <!----------- FORMULARIO ASIGNATURAS  ------------>
-
-<div id="formAsignaturas" class="background-imagen">
-  <div class="container4">
-    <p class="pf">INSCRIPCIÓN ASIGNATURAS</p>
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
-        <div class="card px-5 pt-4 d-flex justify-content-center">
-        <form class="mydetails">
-
-          <div class="mb-3">
-
-            <label for="programa" class="form-label">Programa</label>
-
-            <select id="programa" class="form-select">
-
-            </select>
-          </div>
-
-          <div class="mb-3">
-
-            <label for="curso" class="form-label">Curso</label>
-
-            <select id="curso" class="form-select">
-
-            </select>
-          </div>
-
-          <div class="form-group"><input type="text" class="form-control" id="codigo" required><label class="form-control-placeholder" for="codigo">Código</label></div>
-
-          <div class="form-group"><input type="number" class="form-control" id="creditos" required><label class="form-control-placeholder" for="creditos">Créditos</label></div>
-
-          <div class="mb-3">
-
-            <label for="profesor" class="form-label">Profesor</label>
-
-            <select id="profesor" class="form-select">
-
-            </select>
-          </div>
-            
-          <div class="form-group"><input type="number" class="form-control" id="cupos" required><label class="form-control-placeholder" for="cupos">Cupos Disponibles</label></div>
-
-          <div class="mb-3" id="horarios-container">
-
-
-
+<div id="formAsignaturas">
+  <div class="imagen-fondo">
+    <div class="container4">
+      <h2>INSCRIPCIÓN ASIGNATURAS</h2>
+    </div>
     
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <div class="card px-5 pt-4 d-flex justify-content-center">
+          <form class="mydetails">
+  
+            <div class="mb-3">
+  
+              <label for="programa" class="form-label">Programa</label>
+  
+              <select id="programa" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="mb-3">
+  
+              <label for="curso" class="form-label">Curso</label>
+  
+              <select id="curso" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="form-group"><input type="text" class="form-control" id="codigo" required><label class="form-control-placeholder" for="codigo">Código</label></div>
+  
+            <div class="form-group"><input type="number" class="form-control" id="creditos" required><label class="form-control-placeholder" for="creditos">Créditos</label></div>
+  
+            <div class="mb-3">
+  
+              <label for="profesor" class="form-label">Profesor</label>
+  
+              <select id="profesor" class="form-select">
+  
+              </select>
+            </div>
+              
+            <div class="form-group"><input type="number" class="form-control" id="cupos" required><label class="form-control-placeholder" for="cupos">Cupos Disponibles</label></div>
+  
+            <div class="mb-3" id="horarios-container">
+  
+  
+  
+      
+            </div>
+  
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarHorario()">Agregar horarios de clase</button></div>
+  
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAsignaturas()">Submit</button></div>
+            </div>
+            </div>
+          </form>
           </div>
-
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarHorario()">Agregar horarios de clase</button></div>
-
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitAsignaturas()">Submit</button></div>
-          </div>
-          </div>
-        </form>
         </div>
       </div>
     </div>
+  
+  
   </div>
 
-
 </div>
+
 
 <!----------- FORMULARIO MATRICULAS  -------------->
-
 <div id="formMatriculas">
-  <div class="container4">
-    <p class="pf">INSCRIPCIÓN GESTION DE MATRICULAS</p>
-  </div>
+  <div class="imagen-fondo">
+    <div class="container4">
+      <h2>INSCRIPCIÓN GESTION DE MATRICULAS</h2>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <div class="card px-5 pt-4 d-flex justify-content-center">
+          <form class="mydetails">
   
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
-        <div class="card px-5 pt-4 d-flex justify-content-center">
-        <form class="mydetails">
-
-          <div class="mb-3">
-
-            <label for="estudiante" class="form-label">Estudiante</label>
-
-            <select id="estudiante" class="form-select">
-
-            </select>
-          </div>
-
-          <div class="mb-3">
-
-            <label for="asignatura" class="form-label">Asignatura</label>
-
-            <select id="asignatura" class="form-select">
-
-            </select>
-          </div>
-
-      
-          <div class="mb-3">
-
-            <label for="periodo" class="form-label">Periodo</label>
-
-            <select id="periodo" class="form-select">
-
-            </select>
-          </div>
-
-
-          <div id="matricula-container">
-            <table class="table table-striped">
-              <thead>
-                  <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Estudiante</th>
-                        <th scope="col">Asignatura</th>
-                        <th scope="col">Periodo</th>
-                        <th scope="col">Costo Crédito</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tablaMatriculas">
-              
-                    </tbody>
-                </table>
-          </div>
-
-          <p id="totalCreditos">Total de créditos:</p>
-          <p id="costoTotalCreditos">Costo total de créditos:</p>
-
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Agregar matricula</button></div>
-
-
-          <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitMatriculas()">Confirmar matricula</button></div>
-
+            <div class="mb-3">
+  
+              <label for="estudiante" class="form-label">Estudiante</label>
+  
+              <select id="estudiante" class="form-select">
+  
+              </select>
+            </div>
+  
+            <div class="mb-3">
+  
+              <label for="asignatura" class="form-label">Asignatura</label>
+  
+              <select id="asignatura" class="form-select">
+  
+              </select>
+            </div>
+  
         
+            <div class="mb-3">
+  
+              <label for="periodo" class="form-label">Periodo</label>
+  
+              <select id="periodo" class="form-select">
+  
+              </select>
+            </div>
+  
+  
+            <div id="matricula-container">
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Asignatura</th>
+                          <th scope="col">Periodo</th>
+                          <th scope="col">Créditos</th>
+                          <th scope="col">Costo Créditos</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tablaMatriculas">
+                
+                      </tbody>
+                  </table>
+            </div>
+  
+            <p id="totalCreditos">Costo total de créditos:</p>
+  
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="agregarMatricula()">Agregar matricula</button></div>
+  
+  
+            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" onclick="submitMatriculas()">Confirmar matricula</button></div>
+  
+          
+            </div>
+            </div>
+          </form>
           </div>
-          </div>
-        </form>
         </div>
       </div>
     </div>
+  
+  
   </div>
 
-
 </div>
+
 
 <!----------- REPORTES  -------------->
 

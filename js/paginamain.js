@@ -243,8 +243,8 @@ const pagReportes=()=>{
     pagReportesInput.style.display="block";
     formHorariosInput.style.display="none";
 
-    cargarReportes()
-    fillTable()
+    cargarRecaudos()
+
 
 }
 

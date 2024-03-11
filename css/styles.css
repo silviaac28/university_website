@@ -29,10 +29,58 @@
 
 
 /* HOME */
- #imagen-portada img{
-  width: 100vw;
-  height: 93vh;
- }
+#home {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  background-image: url('unif.png');
+  color: black;
+}
+
+#about-us{
+  background-color: rgba(19, 29, 39, 0.497);
+  /* background-color: rgba(0, 0, 0, 0.7); Fondo negro con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  max-width: 35vw;
+  margin-left: 70vw;
+  margin-top: 0vh;
+  height: 100vh;
+  text-align: center;
+
+}
+
+.about-us .container4 {
+  background-color: transparent; 
+  color: black;/* Fondo transparente para que se muestre el color de fondo del div padre */
+}
+
+
+.circulos img{
+  margin-bottom: 5vh;
+  width:11vw;
+  height: 21vh;
+  border-radius: 50%; /* Hace que la imagen sea totalmente redondeada */
+  border: 2px solid white;
+}
+
+.container4 h4{
+  color: aliceblue;
+}
+
+
+/* TABLAS */
+.titulo-tabla{
+  text-align: center;
+}
+
+table{
+  background-color: aquamarine;
+}
+
 
 /* FORMULARIOS */
 
@@ -46,7 +94,7 @@
   color: black;
 }
 
-/*DISENO FORMULARIO ALUMNOS */
+/*DISENO FORMULARIO DOCENTES */
 
 #formDocentes{
   display: flex;
@@ -60,6 +108,33 @@
 #formDocentes button{
   margin-top: 5vh;
 }
+
+/*DISENO FORMULARIO ASIGNATURAS */
+#formAsignaturas{
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  background-image: url('unif.png');
+  color: black;
+}
+
+#formAsignaturas button{
+  margin-top: 5vh;
+}
+
+/*DISENO FORMULARIO MATRICULAS */
+#formMatriculas{
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  background-image: url('unif.png');
+  color: black;
+}
+
+#formMatriculas button{
+  margin-top: 5vh;
+}
+
 
 .imagen-fondo {
   background-color: aliceblue;

@@ -1,45 +1,64 @@
-const cargarInformes=()=>{
-    let valorTotalMatriculas=0;
-    console.log(listaMatriculas)
-    informesInput.innerHTML="hola" 
-    for(const matriculas of listaMatriculas){
-        valorTotalMatriculas+= matriculas.precio
-    }
-    console.log(valorTotalMatriculas)
-   
-    
-const repeticionesAsignaturas = {};
+let listaMatriculas = []; // Variable global para almacenar las matrículas
 
-// Iteramos sobre cada matrícula
-listaMatriculas.forEach(matricula => {
-    // Verificamos si asignatura_id es un array
-    if (Array.isArray(matricula.asignatura_id)) {
-        matricula.asignatura_id.forEach(asignaturaId => {
-            // Incrementamos el contador de la asignatura
-            repeticionesAsignaturas[asignaturaId] = (repeticionesAsignaturas[asignaturaId] || 0) + 1;
-        });
-    } else {
-        // Incrementamos el contador de la asignatura
-        repeticionesAsignaturas[matricula.asignatura_id] = (repeticionesAsignaturas[matricula.asignatura_id] || 0) + 1;
-    }
-});
+const loadMatriculas = async () => {
+    try {
+        const respuesta = await fetch('http://localhost:3000/matriculas');
 
-}
-// Mostramos el objeto con la cantidad de veces que aparece cada asignatura
-console.log(repeticionesAsignaturas);
-let asignaturaMasRepetida = null;
-let maxRepeticiones = 0;
-
-for (let asignaturaId in repeticionesAsignaturas) {
-    if (repeticionesAsignaturas[asignaturaId] > maxRepeticiones) {
-        asignaturaMasRepetida = asignaturaId;
-        maxRepeticiones = repeticionesAsignaturas[asignaturaId];
+        if (!respuesta.ok) {
+            throw new Error('Error al cargar matricula. Estado: ' + respuesta.status);
+        }
+        const matriculas = await respuesta.json();
+        listaMatriculas = matriculas; // Asignar los datos cargados a la variable global
+    } catch (error) {
+        console.error("Error al cargar matriculas", error.message);
     }
-    
-}
-console.log(listaAsignaturas[asignaturaMasRepetida-1].codigo);
-informesInput.innerHTML=`
-<h1> total recaudado</h1>
-<h1>${valorTotalMatriculas}</h1>
-<h1>  asignatura más matriculada</h1>
-<h1>${listaAsignaturas[asignaturaMasRepetida-1].codigo}</h1>`
+};
+
+const cargarRecaudos = () => {
+    const tablaRecaudos = document.getElementById("tablaRecaudos");
+    let datos = '';
+
+    // Obtener los períodos únicos presentes en el JSON de matrículas
+    const periodosUnicos = [...new Set(listaMatriculas.map(matricula => matricula.periodo_id))];
+
+    // Iterar sobre cada período único para calcular el total recaudado y la asignatura más matriculada
+    periodosUnicos.forEach(periodo => {
+        // Filtrar las matrículas por el período actual
+        const matriculasPeriodo = listaMatriculas.filter(matricula => matricula.periodo_id === periodo);
+
+        // Calcular el total recaudado en matrículas para el período actual
+        const totalRecaudado = matriculasPeriodo.reduce((total, matricula) => total + matricula.precio, 0);
+
+        // Obtener la asignatura más matriculada para el período actual
+        const asignaturasMatriculadas = matriculasPeriodo.map(matricula => matricula.asignatura_id).flat();
+        const asignaturaMasMatriculadaId = mode(asignaturasMatriculadas);
+
+        // Encontrar la asignatura correspondiente al ID más matriculado
+        const asignaturaMasMatriculada = listaAsignaturas.find(asignatura => asignatura.id === asignaturaMasMatriculadaId);
+
+        // Construir la fila de la tabla con la información obtenida
+        datos += `<tr>
+                    <td>${periodo}</td>
+                    <td>${totalRecaudado}</td>
+                    <td>${asignaturaMasMatriculada ? asignaturaMasMatriculada.codigo : 'N/A'}</td>
+                  </tr>`;
+    });
+
+    // Llenar la tabla con los datos generados
+    tablaRecaudos.innerHTML = datos;
+};
+
+// Función para encontrar el elemento más frecuente en un array
+const mode = arr =>
+  arr.reduce(
+    (a, b, _, arr) =>
+      (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b),
+    null
+  );
+
+// Llamar a la función para cargar los recaudos al cargar la página
+window.onload = () => {
+    loadMatriculas()
+        .then(() => cargarRecaudos())
+        .catch(error => console.error(error));
+};

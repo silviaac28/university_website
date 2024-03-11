@@ -36,29 +36,15 @@ const cargarEstudiantes=()=>{
     estudianteInput.innerHTML=datos;
 }
 
-const cargarAsignaturas = () => {
-    const asignaturaInput = document.getElementById("asignatura");
+const cargarAsignaturas=()=>{
+    const asignaturaInput=document.getElementById("asignatura");
     let datos = '';
-    
-    // Creamos un conjunto (Set) para almacenar las asignaturas únicas
-    const asignaturasUnicas = new Set();
-
-    // Iteramos sobre la lista de asignaturas y agregamos cada código de asignatura al conjunto
-    for (const asignatura of listaAsignaturas) {
-        asignaturasUnicas.add(asignatura.codigo);
+    for ( const asignat of listaAsignaturas){
+        datos+=`<option value="${asignat.id}">${asignat.codigo}</option>` 
     }
+    console.log(datos)
 
-    // Convertimos el conjunto de asignaturas únicas de nuevo a un array
-    const asignaturasArray = Array.from(asignaturasUnicas);
-
-    // Ahora iteramos sobre el array de asignaturas únicas para crear las opciones del select
-    for (const codigoAsignatura of asignaturasArray) {
-        datos += `<option value="${codigoAsignatura}">${codigoAsignatura}</option>`;
-    }
-
-    console.log(datos);
-
-    asignaturaInput.innerHTML = datos;
+    asignaturaInput.innerHTML=datos;
 }
 
 const cargarPeriodos=()=>{
@@ -90,8 +76,8 @@ const cargarMatriculasTabla=()=>{
         datos+=`<tr>
 
         <td>${matric.id}</td>
-        <td>${matric.estudiante_id}</td>
         <td>${matric.asignatura_id}</td>
+        <td>${matric.periodo_id}</td>
         <td>${matric.periodo_id}</td>
 
         </tr>`
@@ -102,12 +88,19 @@ const cargarMatriculasTabla=()=>{
 
 }
 
-const calcularTotalCreditos = () => {
-    totalCreditos = 0; 
-    asignaturasAnadidas.forEach(asignaturaId => {
-        const asignatura = listaAsignaturas.find(asignatura => asignatura.id === asignaturaId);
-        totalCreditos += asignatura.creditos; 
-    });
+const calcularCreditos = () => {
+  
+
+    for (const asignatura of listaAsignaturas){
+        console.log(parseInt(asignatura.id));
+        console.log(parseInt(document.getElementById("asignatura").value));
+
+        if(parseInt(document.getElementById("asignatura").value)==parseInt(asignatura.id)){
+        return(asignatura.creditos);
+        }
+    }
+
+    console.log(totalCreditos);
 };
 
 const submitMatriculas = () => {
@@ -125,7 +118,7 @@ const submitMatriculas = () => {
         estudiante_id: estudiante,
         asignatura_id: asignaturasAnadidas,
         periodo_id: periodo,
-        precio: precio1 
+        precio: totalCreditos
     };
 
     guardarMatricula(nuevaMatricula);
@@ -160,28 +153,19 @@ const submitMatriculas = () => {
     }
 
 
+
+
 const agregarMatricula = () => {
 
-    const estudianteInput=document.getElementById("estudiante")
-    const asignaturaInput=document.getElementById("asignatura")
-    const periodoInput=document.getElementById("periodo")
-    const precioInput=document.getElementById("precio")
-        
-    const estudiante=parseInt(estudianteInput.value);
-    const asignatura=asignaturaInput.value;
+const estudianteInput=document.getElementById("estudiante")
+const asignaturaInput=document.getElementById("asignatura")
+const periodoInput=document.getElementById("periodo")
+const precioInput=document.getElementById("precio")
 
-// Verificar si el estudiante ya ha matriculado esta asignatura en el JSON
-const estudianteYaMatriculado = listaMatriculas.some(matricula => matricula.estudiante_id === estudiante && matricula.asignatura_id.includes(asignatura));
-if (estudianteYaMatriculado) {
-    alert("Este estudiante ya ha matriculado esta asignatura.");
-    return; // Detener la ejecución si el estudiante ya está matriculado en la asignatura
-}
+const estudiante=parseInt(estudianteInput.value);
+const asignatura=asignaturaInput.value;
 
-// Verificar si el estudiante ya ha matriculado esta asignatura- ESTO ES LO UNICO QUE CAMBIOOOO
-if (asignaturasAnadidas.includes(asignatura)) {
-    alert("Este estudiante ya ha matriculado esta asignatura.");
-    return; // Detener la ejecución si la asignatura ya fue matriculada
-}
+
 
 asignaturasAnadidas[item]=asignatura;
 item =item+1;
@@ -200,27 +184,30 @@ console.log(asignaturasAnadidas)
         console.log(periodo)
         console.log(elemento.programa_id)
         console.log(asignatura)
-        return elemento.periodo_id == periodo && elemento.programa_id == listaAsignaturas[asignatura-1].programa_id;
+        return elemento.periodo_id == periodo && elemento.programa_id == asignatura;
     });
 
     console.log(encontrados)
-        precio1 = encontrados[0].costo_credito;
-    
+        precio1 = encontrados[0].costo_credito; // Suponiendo que la tarifa tiene un atributo 'costo_credito'
+        const creditos =calcularCreditos(); 
+        console.log(creditos)
     console.log(precio1)
+    const totalCreditosAsignatura=creditos*precio1
+    totalCreditos+=totalCreditosAsignatura
     nuevaMatricula.innerHTML = `
     <td>${item}</td>
-    <td>${listaAlumnos[estudiante-1].nombre}</td>
     <td>${listaAsignaturas[asignatura-1].codigo}</td>
     <td>${listaPeriodos[periodo-1].codigo}</td>
+    <td>${creditos}</td>
     <td>${precio1}</td>
+    <td>${totalCreditosAsignatura}</td>
     `
     ;
     matriculaContainer.appendChild(nuevaMatricula);
 
-    calcularTotalCreditos(); 
+   
     document.getElementById('totalCreditos').textContent = `Total de créditos: ${totalCreditos}`;
     
 
 }; 
-
 
