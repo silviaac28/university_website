@@ -14,51 +14,46 @@ const loadMatriculas = async () => {
     }
 };
 
-const cargarRecaudos = () => {
-    const tablaRecaudos = document.getElementById("tablaRecaudos");
+
+
+
+const cargarReportesTabla=()=>{
+    const reportesInput=document.getElementById("tablaRecaudos");
     let datos = '';
 
-    // Obtener los períodos únicos presentes en el JSON de matrículas
-    const periodosUnicos = [...new Set(listaMatriculas.map(matricula => matricula.periodo_id))];
+    var totalPeriodo1 = 0;
+    var totalPeriodo2 = 0;
 
-    // Iterar sobre cada período único para calcular el total recaudado y la asignatura más matriculada
-    periodosUnicos.forEach(periodo => {
-        // Filtrar las matrículas por el período actual
-        const matriculasPeriodo = listaMatriculas.filter(matricula => matricula.periodo_id === periodo);
+    for ( const matricula of listaMatriculas){
+        if(matricula.periodo_id == 1){
+            totalPeriodo1 = totalPeriodo1 + matricula.precio;
+            }
+        else {
+            totalPeriodo2 = totalPeriodo2 + matricula.precio;
+}
+    
+    }
 
-        // Calcular el total recaudado en matrículas para el período actual
-        const totalRecaudado = matriculasPeriodo.reduce((total, matricula) => total + matricula.precio, 0);
+    console.log(totalPeriodo1)
+    console.log(totalPeriodo2)
 
-        // Obtener la asignatura más matriculada para el período actual
-        const asignaturasMatriculadas = matriculasPeriodo.map(matricula => matricula.asignatura_id).flat();
-        const asignaturaMasMatriculadaId = mode(asignaturasMatriculadas);
+        datos+=`<tr>
 
-        // Encontrar la asignatura correspondiente al ID más matriculado
-        const asignaturaMasMatriculada = listaAsignaturas.find(asignatura => asignatura.id === asignaturaMasMatriculadaId);
+            <td>${matricula.periodo_id}</td>
+            <td>${totalPeriodo1}</td>
 
-        // Construir la fila de la tabla con la información obtenida
-        datos += `<tr>
-                    <td>${periodo}</td>
-                    <td>${totalRecaudado}</td>
-                    <td>${asignaturaMasMatriculada ? asignaturaMasMatriculada.codigo : 'N/A'}</td>
-                  </tr>`;
-    });
 
-    // Llenar la tabla con los datos generados
-    tablaRecaudos.innerHTML = datos;
-};
+            </tr>`
 
-// Función para encontrar el elemento más frecuente en un array
-const mode = arr =>
-  arr.reduce(
-    (a, b, _, arr) =>
-      (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b),
-    null
-  );
+        datos+=`<tr>
 
-// Llamar a la función para cargar los recaudos al cargar la página
-window.onload = () => {
-    loadMatriculas()
-        .then(() => cargarRecaudos())
-        .catch(error => console.error(error));
-};
+        <td>${matricula.periodo_id}</td>
+        <td>${totalPeriodo2}</td>
+
+        </tr>`
+    //}
+    console.log(datos);
+
+    reportesInput.innerHTML=datos;
+
+}
