@@ -35,6 +35,7 @@ for (const asignaturass of listaAsignaturas) {
     if (asignaturass.id == matriculasEstudiante[i]){
     opciones+=`
     <div>
+    <h2>${asignaturass.codigo}</h2>
     <h2>${asignaturass.horario_clases[0].dia}</h2>
     <h2>${asignaturass.horario_clases[0].hora_inicio} - ${asignaturass.horario_clases[0].hora_fin} </h2>
     <h2>${asignaturass.horario_clases[1].dia}</h2>
@@ -43,11 +44,11 @@ for (const asignaturass of listaAsignaturas) {
     `
 
 
-            console.log("se solo" + asignaturass.horario_clases[0].dia)
-        console.log("se solo" + asignaturass.horario_clases[0].hora_inicio)
+            console.log("so" + asignaturass.horario_clases[0].dia)
+        console.log("so" + asignaturass.horario_clases[0].hora_inicio)
         
-        console.log("se solo" + asignaturass.horario_clases[1].dia)
-        console.log("se solo" + asignaturass.horario_clases[1].hora_inicio)
+        console.log("so" + asignaturass.horario_clases[1].dia)
+        console.log("so" + asignaturass.horario_clases[1].hora_inicio)
     }
  }
  i++
