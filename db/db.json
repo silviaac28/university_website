@@ -23,6 +23,46 @@
       "id": "2",
       "nombre": "Ingeniería de Mecatronica",
       "nivel": "Pregrado"
+    },
+    {
+      "id": "3",
+      "nombre": "Ingeniería Civil",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "4",
+      "nombre": "Ingeniería Electrónica",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "5",
+      "nombre": "Derecho",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "6",
+      "nombre": "Gestión Pública",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "7",
+      "nombre": "Ingeniería Química",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "8",
+      "nombre": "Licenciatura en Química",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "9",
+      "nombre": "Física Pura",
+      "nivel": "Pregrado"
+    },
+    {
+      "id": "10",
+      "nombre": "Ingeniería de Telecomunicaciones",
+      "nivel": "Pregrado"
     }
   ],
   "tarifas": [
@@ -159,6 +199,14 @@
     {
       "id": "3",
       "nombre": "Departamento de Ciencias Humanas"
+    },
+    {
+      "id": "4",
+      "nombre": "Departamento de Química"
+    },
+    {
+      "id": "5",
+      "nombre": "Departamento de Ciencias Politicas"
     }
   ],
   "profesores": [
@@ -255,6 +303,19 @@
       "fecha_nacimiento": "1998-03-07",
       "sexo": "Femenino",
       "programa_id": 2
+    },
+    {
+      "id": 5,
+      "nombre": "Silvia",
+      "apellido": "Angarita",
+      "tipo_documento": "Cédula de Ciudadania",
+      "numero_documento": "1095838418",
+      "ciudad_residencia": "Cedula de ciudadania",
+      "direccion": "Cra 26 #52-47",
+      "telefono": "316587423",
+      "fecha_nacimiento": "1998-07-28",
+      "sexo": "Femenino",
+      "programa_id": 1
     }
   ],
   "cursos": [
@@ -554,30 +615,21 @@
     {
       "id": 3,
       "estudiante_id": 2,
-      "asignatura_id": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "asignatura_id": [1, 2, 3, 4],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 4,
       "estudiante_id": 4,
-      "asignatura_id": [
-        1
-      ],
+      "asignatura_id": [1],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 5,
       "estudiante_id": 4,
-      "asignatura_id": [
-        3
-      ],
+      "asignatura_id": [3],
       "periodo_id": 1,
       "precio": 1000
     },
@@ -598,95 +650,70 @@
     {
       "id": 8,
       "estudiante_id": 4,
-      "asignatura_id": [
-        2
-      ],
+      "asignatura_id": [2],
       "periodo_id": 1,
       "precio": 1100
     },
     {
       "id": 9,
       "estudiante_id": 2,
-      "asignatura_id": [
-        null
-      ],
+      "asignatura_id": [null],
       "periodo_id": 1,
       "precio": 0
     },
     {
       "id": 10,
       "estudiante_id": 2,
-      "asignatura_id": [
-        "1",
-        "3"
-      ],
+      "asignatura_id": ["1", "3"],
       "periodo_id": 1,
       "precio": 1050
     },
     {
       "id": 11,
       "estudiante_id": 4,
-      "asignatura_id": [
-        "6",
-        "5"
-      ],
+      "asignatura_id": ["6", "5"],
       "periodo_id": 1,
       "precio": 1100
     },
     {
       "id": 12,
       "estudiante_id": 3,
-      "asignatura_id": [
-        "1"
-      ],
+      "asignatura_id": ["1"],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 13,
       "estudiante_id": 4,
-      "asignatura_id": [
-        "1"
-      ],
+      "asignatura_id": ["1"],
       "periodo_id": 1,
       "precio": 1000
     },
     {
       "id": 14,
       "estudiante_id": 4,
-      "asignatura_id": [
-        "2",
-        "3",
-        "6",
-        "5"
-      ],
+      "asignatura_id": ["2", "3", "6", "5"],
       "periodo_id": 1,
       "precio": 8650
     },
     {
       "id": 15,
       "estudiante_id": 1,
-      "asignatura_id": [
-        "1"
-      ],
+      "asignatura_id": ["1"],
       "periodo_id": 1,
       "precio": 4000
     },
     {
       "id": 16,
       "estudiante_id": 1,
-      "asignatura_id": [
-        "1"
-      ],
+      "asignatura_id": ["1"],
       "periodo_id": 1,
       "precio": 4000
     },
     {
       "id": 17,
       "estudiante_id": 1,
-      "asignatura_id": [
-        "1"
-      ],
+      "asignatura_id": ["1"],
       "periodo_id": 1,
       "precio": 4000
     }
